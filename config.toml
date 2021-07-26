@@ -1,0 +1,17 @@
+baseURL = "https://tonymottaz.com"
+languageCode = "en-us"
+title = "Tony’s Home Page"
+pygmentsUseClasses = true
+
+[permalinks]
+posts = "/:year/:month/:title/"
+
+[markup]
+
+[markup.goldmark]
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[imaging]
+quality = 80

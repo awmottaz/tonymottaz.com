@@ -1,0 +1,188 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3916074, 2020-06-18T11:40:49-0400
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: Alkes-Thin by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/thin/
+ *
+ * Webfont: Alkes-ThinItalic by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/thin-italic/
+ *
+ * Webfont: Alkes-Light by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/light/
+ *
+ * Webfont: Alkes-LightItalic by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/light-italic/
+ *
+ * Webfont: Alkes-Regular by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/regular/
+ *
+ * Webfont: Alkes-RegularItalic by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/regular-italic/
+ *
+ * Webfont: Alkes-Semibold by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/semibold/
+ *
+ * Webfont: Alkes-SemiboldItalic by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/semibold-italic/
+ *
+ * Webfont: Alkes-Bold by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/bold/
+ *
+ * Webfont: Alkes-BoldItalic by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/bold-italic/
+ *
+ * Webfont: Alkes-ExtraBold by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/extra-bold/
+ *
+ * Webfont: Alkes-ExtraBoldItalic by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/extra-bold-italic/
+ *
+ * Webfont: Alkes-Black by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/black/
+ *
+ * Webfont: Alkes-BlackItalic by Fontfabric
+ * URL: https://www.myfonts.comfont-fabric/alkes/black-italic/
+ *
+ *
+ * Webfonts copyright: Copyright © 2020 by Fontfabric. All rights reserved.
+ *
+ * © 2020 MyFonts Inc
+*/
+
+@font-face {
+  font-family: "Alkes";
+  font-style: normal;
+  font-weight: 200;
+  src: local("Alkes-Thin"), url("Alkes-Thin.woff2") format("woff2"),
+    url("Alkes-Thin.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Alkes";
+  font-style: italic;
+  font-weight: 200;
+  src: local("Alkes-ThinItalic"), url("Alkes-ThinItalic.woff2") format("woff2"),
+    url("Alkes-ThinItalic.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Alkes";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Alkes-Light"), url("Alkes-Light.woff2") format("woff2"),
+    url("Alkes-Light.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Alkes";
+  font-style: italic;
+  font-weight: 300;
+  src: local("Alkes-LightItalic"),
+    url("Alkes-LightItalic.woff2") format("woff2"),
+    url("Alkes-LightItalic.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Alkes";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Alkes-Regular"), url("Alkes-Regular.woff2") format("woff2"),
+    url("Alkes-Regular.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Alkes";
+  font-style: italic;
+  font-weight: 400;
+  src: local("Alkes-RegularItalic"),
+    url("Alkes-RegularItalic.woff2") format("woff2"),
+    url("Alkes-RegularItalic.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Alkes";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Alkes-Semibold"), url("Alkes-Semibold.woff2") format("woff2"),
+    url("Alkes-Semibold.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Alkes";
+  font-style: italic;
+  font-weight: 600;
+  src: local("Alkes-SemiboldItalic"),
+    url("Alkes-SemiboldItalic.woff2") format("woff2"),
+    url("Alkes-SemiboldItalic.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Alkes";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Alkes-Bold"), url("Alkes-Bold.woff2") format("woff2"),
+    url("Alkes-Bold.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Alkes";
+  font-style: italic;
+  font-weight: 700;
+  src: local("Alkes-BoldItalic"), url("Alkes-BoldItalic.woff2") format("woff2"),
+    url("Alkes-BoldItalic.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Alkes";
+  font-style: normal;
+  font-weight: 800;
+  src: local("Alkes-ExtraBold"), url("Alkes-ExtraBold.woff2") format("woff2"),
+    url("Alkes-ExtraBold.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Alkes";
+  font-style: italic;
+  font-weight: 800;
+  src: local("Alkes-ExtraBoldItalic"),
+    url("Alkes-ExtraBoldItalic.woff2") format("woff2"),
+    url("Alkes-ExtraBoldItalic.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Alkes";
+  font-style: normal;
+  font-weight: 900;
+  src: local("Alkes-Black"), url("Alkes-Black.woff2") format("woff2"),
+    url("Alkes-Black.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Alkes";
+  font-style: italic;
+  font-weight: 900;
+  src: local("Alkes-BlackItalic"),
+    url("Alkes-BlackItalic.woff2") format("woff2"),
+    url("Alkes-BlackItalic.woff") format("woff");
+  font-display: fallback;
+}

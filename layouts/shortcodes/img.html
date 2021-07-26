@@ -1,0 +1,61 @@
+{{/* This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+*/}}
+
+{{/* For including inline images in blog posts.
+  src: The image file name.
+  alt: Alternate text for the image.
+  class?: Applies the class name to the figure element.
+  inner?: Label text for the image.
+*/}}
+
+{{ $original := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) }}
+{{ $webp_xl := $original.Resize "2048x webp" }}
+{{ $webp_lg := $original.Resize "1024x webp" }}
+{{ $webp_md := $original.Resize "640x webp" }}
+{{ $webp_sm := $original.Resize "320x webp" }}
+{{ $jpg_xl := $original.Resize "2048x jpg" }}
+{{ $jpg_lg := $original.Resize "1024x jpg" }}
+{{ $jpg_md := $original.Resize "640x jpg" }}
+{{ $jpg_sm := $original.Resize "320x jpg" }}
+{{ $jpg_fallback := $original.Resize "720x jpg q50" }}
+
+
+<figure {{ with .Get "class" }}class="{{ . }}"{{ end }}>
+  <div>
+    <picture>
+      <source
+        type="image/webp"
+        srcset="
+          {{ $webp_xl.RelPermalink }} 2048w,
+          {{ $webp_lg.RelPermalink }} 1024w,
+          {{ $webp_md.RelPermalink }}  640w,
+          {{ $webp_sm.RelPermalink }}  320w
+        "
+        sizes="(min-width: 42rem) 42rem, 100%"
+      />
+      <source
+        type="image/jpg"
+        srcset="
+          {{ $jpg_xl.RelPermalink }} 2048w,
+          {{ $jpg_lg.RelPermalink }} 1024w,
+          {{ $jpg_md.RelPermalink }}  640w,
+          {{ $jpg_sm.RelPermalink }}  320w
+        "
+        sizes="(min-width: 42rem) 42, 100%"
+      />
+      <img
+        width="720"
+        src="{{ $jpg_fallback.RelPermalink }}"
+        alt="{{ .Get "alt" }}"
+      />
+    </picture>
+  </div>
+
+  {{ with .Inner }}
+    <figcaption>
+      {{ . }}
+    </figcaption>
+  {{ end }}
+</figure>

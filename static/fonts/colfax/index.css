@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "ColfaxWeb";
+  src: url("ColfaxWebThin/ColfaxWebThin.eot");
+  src: url("ColfaxWebThin/ColfaxWebThin.eot?#iefix") format("embedded-opentype"),
+    url("ColfaxWebThin/ColfaxWebThin.woff2") format("woff2"),
+    url("ColfaxWebThin/ColfaxWebThin.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ColfaxWeb";
+  src: url("ColfaxWebThinItalic/ColfaxWebThinItalic.eot");
+  src: url("ColfaxWebThinItalic/ColfaxWebThinItalic.eot?#iefix")
+      format("embedded-opentype"),
+    url("ColfaxWebThinItalic/ColfaxWebThinItalic.woff2") format("woff2"),
+    url("ColfaxWebThinItalic/ColfaxWebThinItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "ColfaxWeb";
+  src: url("ColfaxWebRegular/ColfaxWebRegular.eot");
+  src: url("ColfaxWebRegular/ColfaxWebRegular.eot?#iefix")
+      format("embedded-opentype"),
+    url("ColfaxWebRegular/ColfaxWebRegular.woff2") format("woff2"),
+    url("ColfaxWebRegular/ColfaxWebRegular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ColfaxWeb";
+  src: url("ColfaxWebRegularItalic/ColfaxWebRegularItalic.eot");
+  src: url("ColfaxWebRegularItalic/ColfaxWebRegularItalic.eot?#iefix")
+      format("embedded-opentype"),
+    url("ColfaxWebRegularItalic/ColfaxWebRegularItalic.woff2") format("woff2"),
+    url("ColfaxWebRegularItalic/ColfaxWebRegularItalic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "ColfaxWeb";
+  src: url("ColfaxWebBold/ColfaxWebBold.eot");
+  src: url("ColfaxWebBold/ColfaxWebBold.eot?#iefix") format("embedded-opentype"),
+    url("ColfaxWebBold/ColfaxWebBold.woff2") format("woff2"),
+    url("ColfaxWebBold/ColfaxWebBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ColfaxWeb";
+  src: url("ColfaxWebBoldItalic/ColfaxWebBoldItalic.eot");
+  src: url("ColfaxWebBoldItalic/ColfaxWebBoldItalic.eot?#iefix")
+      format("embedded-opentype"),
+    url("ColfaxWebBoldItalic/ColfaxWebBoldItalic.woff2") format("woff2"),
+    url("ColfaxWebBoldItalic/ColfaxWebBoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}

@@ -1,0 +1,17 @@
+{{/* This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+*/}}
+
+{{/* Like the highlight shortcode, but loads the code snippet from a local file.
+  0: The name of the file to load.
+  1: Syntax language
+  2?: Options, same as the highlight shortcode.
+*/}}
+
+{{ $code := .Page.Resources.GetMatch (printf "*%s*" (.Get 0)) }}
+{{ if len .Params | eq 3 }}
+  {{ highlight (trim $code.Content "\n\r") (.Get 1) (.Get 2) }}
+{{ else }}
+  {{ highlight (trim $code.Content "\n\r") (.Get 1) "" }}
+{{ end }}

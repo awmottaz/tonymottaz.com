@@ -1,0 +1,90 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+  font-family: var(--font-serif);
+  font-variant-numeric: oldstyle-nums;
+  font-size: var(--fs-md);
+
+  background-color: var(--color-pageBackground);
+  color: var(--color-textPrimary);
+
+  counter-reset: sidenote-counter;
+}
+
+a {
+  color: var(--color-textPrimary);
+
+  &:hover {
+    color: var(--color-textAccent);
+  }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    var(--color-textPrimary),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+p {
+  line-height: 1.4;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+pre,
+code {
+  font-family: var(--font-monospace);
+  font-size: 90%;
+}

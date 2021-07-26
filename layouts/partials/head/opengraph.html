@@ -1,0 +1,17 @@
+{{/* https://ogp.me/ */}}
+
+
+<meta property="og:locale" content="en_US" />
+<meta
+  property="og:type"
+  content="{{- if eq .Type "posts" -}}
+    article
+  {{- else -}}
+    website
+  {{- end -}}"
+/>
+{{ with .Description }}
+  <meta property="og:description" content="{{ . }}" />
+{{ end }}
+{{ with .Title }}<meta property="og:title" content="{{ . }}" />{{ end }}
+<meta property="og:url" content="{{ .Permalink }}" />

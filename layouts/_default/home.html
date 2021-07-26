@@ -1,0 +1,35 @@
+{{ define "head" }}
+  <meta name="description" content="The home page of Tony Mottaz" />
+
+  {{ $styles := resources.Get "layouts/home.scss" | resources.ToCSS | resources.PostCSS }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+{{ end }}
+
+{{ define "body" }}
+  <main class="layout-homepage">
+    <h1 class="title title-sans">Tony’s home page</h1>
+
+    <article class="blog-post-list">
+      <h2 class="title title-sans -level2">Posts</h2>
+
+      <ul class="list">
+        {{ range where .Site.RegularPages.ByDate.Reverse "Section" "posts" }}
+          <li class="item">
+            <a href="{{ .Permalink }}" class="link">{{ .Title }}</a>
+            <time datetime="{{ .Date }}" class="date"
+              >{{ .PublishDate.Format "2 January 2006" }}</time
+            >
+            <p class="summary">
+              {{ .Summary }}
+            </p>
+          </li>
+        {{ end }}
+      </ul>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <nav><a href="/about">About this site</a></nav>
+    <p>Copyright © 2020 Tony Mottaz</p>
+  </footer>
+{{ end }}

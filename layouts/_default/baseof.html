@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      {{ .Site.Title }}
+    </title>
+
+    {{ partial "head/analytics.html" . }}
+    {{ partial "head/fonts.html" . }}
+    {{ partial "head/opengraph.html" . }}
+
+    {{ with .Description }}
+      <meta name="description" content="{{ . }}" />
+    {{ end }}
+
+    {{ with .Permalink }}<link rel="canonical" href="{{ . }}" />{{ end }}
+
+
+    <link
+      type="application/atom+xml"
+      rel="alternate"
+      href="/posts/index.xml"
+      title="{{ .Site.Title }}"
+    />
+
+    <meta name="twitter:dnt" content="on" />
+
+    {{ $styles := resources.Get "layouts/baseof.scss" | resources.ToCSS | resources.PostCSS }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+
+    {{/* TODO:
+      <meta name="theme-color" content="#FF00FF" />
+
+      <link rel="icon" href="/favicon.ico"> 32x32 for legacy browsers
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml"> SVG for everyone else
+
+      Support dark mode in the SVG favicon like this:
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <style>
+      path {
+      fill: #153a51;
+      }
+
+      @media (prefers-color-scheme: dark) {
+      path {
+      fill: #FFFFFF;
+      }
+      }
+      </style>
+      <path .../>
+      </svg>
+
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png"> 180x180 icon for web page added to home screen -->
+
+      <link rel="manifest" href="/my.webmanifest">
+    */}}
+
+    {{ block "head" . }}{{ end }}
+  </head>
+  <body>
+    {{ block "body" . }}{{ end }}
+  </body>
+</html>

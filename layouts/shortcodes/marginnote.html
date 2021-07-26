@@ -1,0 +1,11 @@
+{{/* Margin notes
+  id: Unique identifier for this note.
+  inner: The note content.
+*/}}
+
+
+<label for="{{ .Get "id" }}">⊛</label>
+<input type="checkbox" id="{{ .Get "id" }}" />
+<span>
+  {{ .Inner | .Page.RenderString }}
+</span>

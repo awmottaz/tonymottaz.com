@@ -1,0 +1,15 @@
+{{ define "head" }}
+  <meta name="author" content="Tony Mottaz" />
+  <meta name="description" content="About this website" />
+
+  <title>
+    About—{{ .Site.Title }}
+  </title>
+
+  {{ $styles := resources.Get "layouts/about.scss" | resources.ToCSS | resources.PostCSS }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+{{ end }}
+
+{{ define "body" }}
+  <main class="layout-about">{{ .Content }}</main>
+{{ end }}
