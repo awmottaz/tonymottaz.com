@@ -2,13 +2,11 @@
   <meta name="author" content="Tony Mottaz" />
   <meta name="description" content="{{ .Summary }}" />
 
-  <title>
-    {{ .Title }}—{{ .Site.Title }}
-  </title>
-
   {{ $styles := resources.Get "layouts/single.scss" | resources.ToCSS | resources.PostCSS }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
 {{ end }}
+
+{{ define "title" }}{{ .Title }} · {{ .Site.Title }}{{ end }}
 
 {{ define "body" }}
   <main>

@@ -1,6 +1,6 @@
 baseURL = "https://tonymottaz.com"
 languageCode = "en-us"
-title = "Tony’s Home Page"
+title = "Tony Mottaz"
 pygmentsUseClasses = true
 
 [permalinks]

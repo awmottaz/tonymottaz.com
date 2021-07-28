@@ -4,10 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>
-      {{ .Site.Title }}
-    </title>
-
     {{ partial "head/analytics.html" . }}
     {{ partial "head/fonts.html" . }}
     {{ partial "head/opengraph.html" . }}
@@ -59,6 +55,11 @@
     */}}
 
     {{ block "head" . }}{{ end }}
+    <title>
+      {{ block "title" . }}
+        {{ .Site.Title }}
+      {{ end }}
+    </title>
   </head>
   <body>
     {{ block "body" . }}{{ end }}

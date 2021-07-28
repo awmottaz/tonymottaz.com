@@ -7,10 +7,8 @@
 
 {{ define "body" }}
   <main class="layout-homepage">
-    <h1 class="title title-sans">Tony’s home page</h1>
-
     <article class="blog-post-list">
-      <h2 class="title title-sans -level2">Posts</h2>
+      <h2 class="title title-sans -level2">Blog Posts</h2>
 
       <ul class="list">
         {{ range where .Site.RegularPages.ByDate.Reverse "Section" "posts" }}
