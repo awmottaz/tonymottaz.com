@@ -26,10 +26,11 @@
 
     {{ .Content }}
 
-
-    <div class="signature">
-      <img src="/img/sig.png" alt="Signature of 'Tony'" />
-    </div>
+    {{ if (not (.Param "omitSignature")) }}
+      <div class="signature">
+        <img src="/img/sig.png" alt="Signature of 'Tony'" />
+      </div>
+    {{ end }}
 
     {{ with .Params.acknowledgements }}
       <section class="acknowledgements">
