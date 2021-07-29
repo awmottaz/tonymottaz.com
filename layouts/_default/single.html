@@ -30,15 +30,16 @@
     <div class="signature">
       <img src="/img/sig.png" alt="Signature of 'Tony'" />
     </div>
-  </article>
 
-  {{ with .Params.acknowledgements }}
-    <section class="acknowledgements">
-      <h2 class="title">Acknowledgements</h2>
-      <p>I would like to extend my gratitude to the following people:</p>
-      <ul class="list">
-        {{ range . }}<li class="list-item">{{ . | markdownify }}</li>{{ end }}
-      </ul>
-    </section>
-  {{ end }}
+    {{ with .Params.acknowledgements }}
+      <section class="acknowledgements">
+        <h2 class="title">Acknowledgements</h2>
+        <p>I would like to extend my gratitude to the following people:</p>
+        <ul class="list">
+          {{ range . }}<li class="list-item">{{ . | markdownify }}</li>{{ end }}
+        </ul>
+      </section>
+    {{ end }}
+
+  </article>
 {{ end }}
