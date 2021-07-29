@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="start">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,7 +61,23 @@
       {{ end }}
     </title>
   </head>
+
   <body>
-    {{ block "body" . }}{{ end }}
+    <div class="page-layout">
+      <main class="page-main">
+        <h1 class="page-banner">Tony Mottaz</h1>
+        {{ block "main" . }}
+        {{ end }}
+
+      </main>
+      <footer class="page-footer">
+        <p>Copyright © 2020 Tony Mottaz</p>
+        <nav class="footer-nav">
+          <a href="/">Home</a>
+          <a href="/about">About this site</a>
+          <a href="#start">Back to top</a>
+        </nav>
+      </footer>
+    </div>
   </body>
 </html>

@@ -8,61 +8,37 @@
 
 {{ define "title" }}{{ .Title }} · {{ .Site.Title }}{{ end }}
 
-{{ define "body" }}
-  <main>
-    <article class="layout-article">
-      <header>
-        <h1>
-          {{ .Title }}
-        </h1>
-        {{ with .Params.subtitle }}
-          <p>
-            {{ . }}
-          </p>
-        {{ end }}
-        <p>Written by <a href="/">Tony Mottaz</a></p>
-        <time datetime="{{ .Date }}">
-          {{ .PublishDate.Format "2 January 2006" }}
-        </time>
-      </header>
+{{ define "main" }}
+  <article>
+    <header>
+      <h1 class="article-title">
+        {{ .Title }}
+      </h1>
+      {{ with .Params.subtitle }}
+        <p>
+          {{ . }}
+        </p>
+      {{ end }}
+      <time datetime="{{ .Date }}">
+        {{ .PublishDate.Format "2 January 2006" }}
+      </time>
+    </header>
 
-      {{ .Content }}
+    {{ .Content }}
 
-    </article>
 
-    {{ with .Params.acknowledgements }}
-      <section>
-        <h2>Acknowledgements</h2>
-        <p>I would like to extend my gratitude to the following people:</p>
-        <ul>
-          {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
-        </ul>
-      </section>
-    {{ end }}
-  </main>
+    <div class="signature">
+      <img src="/img/sig.png" alt="Signature of 'Tony'" />
+    </div>
+  </article>
 
-  <footer>
-    <p
-      xmlns:dct="http://purl.org/dc/terms/"
-      xmlns:cc="http://creativecommons.org/ns#"
-    >
-      <a rel="cc:attributionURL" property="dct:title" href="{{ .Permalink }}">
-        “{{ .Title }}”</a
-      >
-      by
-      <a
-        rel="cc:attributionURL dct:creator"
-        property="cc:attributionName"
-        href="{{ .Site.BaseURL }}"
-        >Tony Mottaz</a
-      >
-      is licensed under
-      <a rel="license" href="https://creativecommons.org/licenses/by/4.0"
-        >CC BY 4.0</a
-      >
-    </p>
-    <nav>
-      <a href="/">← Back to home</a>
-    </nav>
-  </footer>
+  {{ with .Params.acknowledgements }}
+    <section class="acknowledgements">
+      <h2 class="title">Acknowledgements</h2>
+      <p>I would like to extend my gratitude to the following people:</p>
+      <ul class="list">
+        {{ range . }}<li class="list-item">{{ . | markdownify }}</li>{{ end }}
+      </ul>
+    </section>
+  {{ end }}
 {{ end }}

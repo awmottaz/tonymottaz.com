@@ -4,8 +4,8 @@
 */}}
 
 
-<label for="{{ .Get "id" }}">⊛</label>
-<input type="checkbox" id="{{ .Get "id" }}" />
-<span>
+<label class="marginnote-label" for="{{ .Get "id" }}">⊛</label>
+<input class="marginnote-input" type="checkbox" id="{{ .Get "id" }}" />
+<span class="marginnote-text">
   {{ .Inner | .Page.RenderString }}
 </span>

@@ -1,0 +1,21 @@
+.marginnote-label {
+  color: hsl(214, 100%, 25%);
+}
+
+.marginnote-input {
+  display: none;
+}
+
+.marginnote-text {
+  display: none;
+
+  .marginnote-input:checked + & {
+    display: block;
+    float: left;
+    clear: both;
+    padding: 1em 5% 1em 7%;
+    font-size: 1rem;
+    color: var(--color-textSecondary);
+    line-height: 1.2;
+  }
+}

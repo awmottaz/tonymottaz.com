@@ -1,3 +1,21 @@
-a {
-  color: red;
+.page-main > section {
+  padding-left: var(--content-padding);
+  padding-right: var(--content-padding);
+}
+
+.section-title {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  & > .post-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 }

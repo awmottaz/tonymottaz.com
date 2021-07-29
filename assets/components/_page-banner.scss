@@ -1,0 +1,13 @@
+.page-banner {
+  padding: 4px 0;
+
+  font-family: var(--font-sans);
+  font-size: var(--font-size-pageBanner);
+  font-weight: normal;
+  font-variant: all-small-caps;
+  letter-spacing: 0.05em;
+  text-align: center;
+
+  background-color: var(--color-dark-PageBackground);
+  color: var(--color-dark-textPrimary);
+}
