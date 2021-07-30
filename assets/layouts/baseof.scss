@@ -18,6 +18,12 @@
 
   background-color: var(--color-dark-PageBackground);
   color: var(--color-dark-textPrimary);
+
+  & > a {
+    text-decoration: none;
+
+    --color-link: currentColor;
+  }
 }
 
 .page-footer {
