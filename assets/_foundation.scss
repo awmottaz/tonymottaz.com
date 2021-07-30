@@ -250,15 +250,3 @@ figure {
     line-height: var(--line-height-note);
   }
 }
-
-footer {
-  &.page-footer {
-    background-color: var(--color-dark-PageBackground);
-    color: var(--color-dark-textPrimary);
-    font-family: var(--font-sans);
-    font-size: var(--font-size-footer);
-
-    --color-link: var(--color-dark-textPrimary);
-    --color-textPrimary: var(--color-dark-textPrimary);
-  }
-}

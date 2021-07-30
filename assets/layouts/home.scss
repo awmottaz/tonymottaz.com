@@ -1,6 +1,6 @@
 .layout-home {
   display: grid;
-  grid-template-columns: 1fr Min(38ch, calc(100% - 2 * var(--content-padding))) 1fr;
+  grid-template-columns: 1fr Min(42ch, calc(100% - 2 * var(--content-padding))) 1fr;
   gap: 0 var(--content-padding);
 
   & > * {
@@ -14,13 +14,14 @@
 }
 
 .section-title {
-  margin-top: 24px;
-  margin-bottom: 12px;
+  margin-top: 40px;
+  margin-bottom: 32px;
 }
 
 .post-list {
   padding: 0;
   list-style: none;
+  gap: 32px;
 
   & > .post-list-item {
     display: flex;

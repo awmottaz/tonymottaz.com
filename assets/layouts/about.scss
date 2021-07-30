@@ -1,18 +1,14 @@
 .layout-about {
   display: grid;
-  grid-template-columns: 1fr Min(38ch, calc(100% - 2 * var(--content-padding))) 1fr;
+  grid-template-columns: 1fr Min(42ch, calc(100% - 2 * var(--content-padding))) 1fr;
   gap: 0 var(--content-padding);
 
   & > * {
     grid-column: 2;
-  }
-
-  & > h2 {
-    margin-top: 48px;
     margin-bottom: 24px;
   }
 
-  & > p {
-    margin: 24px 0;
+  & > h2 {
+    margin-top: 24px;
   }
 }
