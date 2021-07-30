@@ -1,0 +1,11 @@
+.bullet-list {
+  display: contents;
+
+  & > ul {
+    padding-left: 20px;
+    list-style: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

@@ -8,6 +8,8 @@
 
 {{ define "title" }}About · {{ .Site.Title }}{{ end }}
 
-{{ define "body" }}
-  <main class="layout-about">{{ .Content }}</main>
+{{ define "main" }}
+  <div class="layout-about">
+    {{ .Content }}
+  </div>
 {{ end }}

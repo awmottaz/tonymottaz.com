@@ -1,0 +1,8 @@
+{{/* A list with bullets.
+  inner: ul content.
+*/}}
+
+
+<div class="bullet-list">
+  {{ .Inner | .Page.RenderString (dict "display" "block") }}
+</div>

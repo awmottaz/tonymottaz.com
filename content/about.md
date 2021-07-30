@@ -8,7 +8,7 @@ layout: "about"
 This site is written by me, Tony Mottaz. It's my little space on the internet to
 write about whatever I feel like writing about. I appreciate having you here!
 
-<span class="rss-logo"><img src="https://rss.com/blog/wp-content/uploads/2019/10/social_style_3_rss-512-1.png" alt="RSS Logo" width="512"></span>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 3c9.941 0 18 8.059 18 18h-3c0-8.284-6.716-15-15-15V3zm0 7c6.075 0 11 4.925 11 11h-3a8 8 0 0 0-8-8v-3zm0 7a4 4 0 0 1 4 4H3v-4z"/></svg>
 <a href="/posts/index.xml">Posts RSS feed</a>
 
 ## Accessibility Statement
@@ -21,23 +21,12 @@ meet the level AA standards outlined in the
 If you have any issues using this website, please contact me in one of the
 following ways:
 
-- [Review open issues](https://github.com/awmottaz/tonymottaz.com/issues) or
-  [open a new issue](https://github.com/awmottaz/tonymottaz.com/issues/new) on
+{{< bullet-list >}}
+
+- [Open a new issue](https://github.com/awmottaz/tonymottaz.com/issues/new) on
   GitHub.
 - <a href="mailto:issues@mottaz.dev?subject=Accessibility on tonymottaz.com">Send
-  me an email</a>
+  me an email</a> {{< /bullet-list >}}
 
 I take these issues seriously and will try to remedy the problem as quickly as I
 can.
-
-## License
-
-The content of the website itself is licensed under
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0), but the underlying
-source code used to format and display this content is
-[dedicated to the public domain](./UNLICENSE). You can find the source code in
-[this GitHub repository](https://github.com/awmottaz/tonymottaz.com).
-
----
-
-[← Back to home page](/)

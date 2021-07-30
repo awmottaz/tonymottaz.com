@@ -1,3 +1,12 @@
-p {
-  --dummy: 0;
+.layout-about {
+  padding: 0 var(--content-padding);
+
+  & > h2 {
+    margin-top: 48px;
+    margin-bottom: 24px;
+  }
+
+  & > p {
+    margin: 24px 0;
+  }
 }
