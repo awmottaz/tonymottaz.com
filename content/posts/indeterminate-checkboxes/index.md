@@ -127,7 +127,7 @@ submitted values from a `form`. It will never submit an indeterminate value.
 
 I am always trying to keep my websites accessible, and you should, too.
 {{< marginnote id="accessible" >}}You can read the accessibility statement for
-this very website on the [home page](/).{{< /marginnote >}} To keep things
+this very website on the [about page](/about).{{< /marginnote >}} To keep things
 accessible, it is important that we follow the
 [ARIA guidelines from the W3C](https://www.w3.org/WAI/). They have excellent
 documentation!

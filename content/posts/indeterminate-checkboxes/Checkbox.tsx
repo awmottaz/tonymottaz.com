@@ -14,7 +14,8 @@ interface Props
   /**
    * If `true`, the checkbox is checked. If `false`, the checkbox is not
    * checked. If left undefined, the checkbox is uncontrolled.
-   * @see https://reactjs.org/docs/glossary.html#controlled-vs-uncontrolled-components
+   *
+   * https://reactjs.org/docs/glossary.html#controlled-vs-uncontrolled-components
    */
   checked?: boolean;
 

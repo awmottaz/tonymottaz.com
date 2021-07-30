@@ -21,12 +21,10 @@ meet the level AA standards outlined in the
 If you have any issues using this website, please contact me in one of the
 following ways:
 
-{{< bullet-list >}}
-
 - [Open a new issue](https://github.com/awmottaz/tonymottaz.com/issues/new) on
   GitHub.
 - <a href="mailto:issues@mottaz.dev?subject=Accessibility on tonymottaz.com">Send
-  me an email</a> {{< /bullet-list >}}
+  me an email</a>
 
 I take these issues seriously and will try to remedy the problem as quickly as I
 can.
