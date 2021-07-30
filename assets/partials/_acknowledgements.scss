@@ -1,5 +1,5 @@
 .acknowledgements {
-  font-size: var(--font-size-acknowledgements);
+  font-size: 90%;
 
   & > .title {
     margin-top: 24px;
@@ -10,7 +10,7 @@
     margin: 16px 0;
   }
 
-  & > .list > .list-item:not(:last-child) {
+  & > .list > .item:not(:last-child) {
     margin-bottom: 12px;
   }
 }

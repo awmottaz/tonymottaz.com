@@ -1,37 +1,37 @@
 :root {
-  --color-pageBackground: white;
-  --color-dark-PageBackground: hsl(0, 0%, 20%);
-  --color-textPrimary: hsl(0, 0%, 15%);
-  --color-dark-textPrimary: hsl(0, 0%, 85%);
-  --color-textSecondary: hsl(0, 0%, 26%);
-  --color-decor: hsl(53, 16%, 68%);
   --color-accent: hsl(112, 58%, 23%);
-  --color-link: hsl(206, 46%, 32%);
   --color-border: hsl(0, 0%, 79%);
   --color-codeComment: hsl(333deg 45% 50%);
+  --color-dark-PageBackground: hsl(0, 0%, 20%);
+  --color-dark-textPrimary: hsl(0, 0%, 85%);
+  --color-decor: hsl(53, 16%, 68%);
+  --color-link: hsl(206, 46%, 32%);
+  --color-pageBackground: white;
+  --color-textPrimary: hsl(0, 0%, 15%);
+  --color-textSecondary: hsl(0, 0%, 26%);
 
+  --font-monospace: Inconsolata, monospace, monospace;
   --font-sans: ColfaxWeb, sans-serif;
   --font-serif: Alkes, serif;
-  --font-monospace: Inconsolata, monospace, monospace;
 
-  --font-size-text: 1.2rem;
-  --font-size-codeBlock: 1rem;
-  --font-size-footer: 1rem;
-  --font-size-pageBanner: 1.3rem;
-  --font-size-headingMain: 1.6rem;
-  --font-size-date: 1rem;
-  --font-size-caption: 1rem;
-  --font-size-articleTitle: 2rem;
+  --font-size-acknowledgements: 1.1rem;
   --font-size-articleMediumTitle: 1.5rem;
   --font-size-articleSmallTitle: 1.3rem;
+  --font-size-articleTitle: 2rem;
   --font-size-blockquote: 1.1rem;
+  --font-size-caption: 1rem;
+  --font-size-codeBlock: 1rem;
+  --font-size-date: 1rem;
   --font-size-definitionList: 1.1rem;
-  --font-size-acknowledgements: 1.1rem;
+  --font-size-footer: 1rem;
+  --font-size-headingMain: 1.6rem;
+  --font-size-pageBanner: 1.3rem;
+  --font-size-text: 1.2rem;
 
-  --line-height-text: 1.5;
   --line-height-blockquote: 1.3;
-  --line-height-note: 1.3;
   --line-height-codeBlock: 1.2;
+  --line-height-note: 1.3;
+  --line-height-text: 1.5;
 
   --gap-footer: 16px;
 
