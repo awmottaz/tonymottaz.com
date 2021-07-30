@@ -39,6 +39,10 @@
   --content-padding: 12px;
 }
 
+html {
+  --full-width: calc(100vw - var(--scrollbar-width));
+}
+
 *,
 *::before,
 *::after {
