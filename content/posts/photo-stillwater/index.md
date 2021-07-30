@@ -6,5 +6,5 @@ summary: "A photo I took of the Stillwater trolley"
 omitSignature: true
 ---
 
-{{< img pattern="trolley" alt="A photograph of the trolley in Stillwater, Minnesota. There is snow on the ground, and sun is overhead" >}}
+{{< img class="full-bleed" pattern="trolley" alt="A photograph of the trolley in Stillwater, Minnesota. There is snow on the ground, and sun is overhead" >}}
 A photograph of the trolley in Stillwater, Minnesota. {{< /img >}}
