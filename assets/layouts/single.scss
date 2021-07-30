@@ -45,4 +45,9 @@
 
 .signature {
   height: 72px;
+
+  & > img {
+    max-height: 100%;
+    width: auto;
+  }
 }
