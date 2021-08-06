@@ -17,7 +17,7 @@
     <ul>
       {{ range .Pages.ByDate.Reverse }}
         <li>
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
           <p>
             <time datetime="{{ .Date }}"
               >{{ .PublishDate.Format "2 January 2006" }}</time
