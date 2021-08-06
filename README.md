@@ -3,10 +3,7 @@ https://tonymottaz.com.
 
 ## License
 
-The content of the website itself and the content of the "content" directory are
-licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0), but the
-underlying source code of this repository used to format and display this
-content is [dedicated to the public domain](./UNLICENSE).
+See the `LICENSE` file in this directory.
 
 ## Building and local development
 

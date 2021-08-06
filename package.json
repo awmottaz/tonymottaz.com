@@ -4,14 +4,14 @@
   "private": true,
   "scripts": {
     "fmt": "npx prettier --write .",
-    "build": "hugo --cleanDestinationDir --gc --ignoreCache --minify"
+    "start": "hugo server",
+    "build": "npm ci && hugo --cleanDestinationDir --gc --ignoreCache --minify"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:awmottaz/tonymottaz.com.git"
   },
   "author": "Tony Mottaz <tony@mottaz.dev>",
-  "license": "UNLICENSED",
   "devDependencies": {
     "prettier": "2.3.2",
     "prettier-plugin-go-template": "0.0.11",
