@@ -50,4 +50,4 @@ I think that some of the best artists understand this at a deep level, and as a
 result they spend less time worrying about their status and labels and more time
 giving generously of themselves.
 
-This selfless generosity is a worthwhile goal.</p>
+This selfless generosity is a worthwhile goal.

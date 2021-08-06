@@ -22,7 +22,7 @@
 {{ $jpg_fallback := $original.Resize "720x jpg q50" }}
 
 
-<figure {{ with .Get "class" }}class="{{ . }}"{{ end }}>
+<figure class="shortcode-img {{ with .Get "class" }}{{ . }}{{ end }}">
   <div>
     <picture>
       <source
@@ -54,7 +54,7 @@
   </div>
 
   {{ with .Inner }}
-    <figcaption>
+    <figcaption class="caption">
       {{ . }}
     </figcaption>
   {{ end }}

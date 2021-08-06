@@ -63,22 +63,13 @@
   </head>
 
   <body>
-    <div class="page-layout">
-      <main class="page-main">
-        <h1 class="page-banner"><a href="/">Tony Mottaz</a></h1>
-        {{ block "main" . }}
-        {{ end }}
+    <main class="page-main">
+      {{ block "main" . }}
+      {{ end }}
+    </main>
 
-      </main>
-      <footer class="page-footer">
-        <p class="copyright">Copyright © 2020 Tony Mottaz</p>
-        <nav class="footer-nav">
-          <a href="/">Home</a>
-          <a href="/about">About this site</a>
-          <a href="#start">Back to top</a>
-        </nav>
-      </footer>
-    </div>
+    {{ partial "footer" . }}
+
 
     <script>
       const scrollbarWidth =

@@ -1,14 +1,15 @@
 .layout-about {
-  display: grid;
-  grid-template-columns: 1fr Min(42ch, calc(100% - 2 * var(--content-padding))) 1fr;
-  gap: 0 var(--content-padding);
+  padding-left: var(--size-pagePad);
+  padding-right: var(--size-pagePad);
+  max-width: var(--size-contentWidth);
+  margin-left: auto;
+  margin-right: auto;
 
   & > * {
-    grid-column: 2;
-    margin-bottom: 24px;
+    margin-top: var(--font-size-text-md);
   }
+}
 
-  & > h2 {
-    margin-top: 24px;
-  }
+.footer {
+  margin-top: 64px;
 }

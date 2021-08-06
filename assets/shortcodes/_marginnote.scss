@@ -1,5 +1,6 @@
 .marginnote-label {
-  color: hsl(214, 100%, 25%);
+  color: var(--color-noteIcon);
+  padding-right: 0.5ch;
 }
 
 .marginnote-input {
@@ -16,6 +17,6 @@
     padding: 1em 5% 1em 7%;
     font-size: 1rem;
     color: var(--color-textSecondary);
-    line-height: var(--line-height-note);
+    line-height: var(--line-height-tight);
   }
 }

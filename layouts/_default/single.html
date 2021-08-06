@@ -9,8 +9,9 @@
 {{ define "title" }}{{ .Title }} · {{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
-  <article class="layout-single">
-    <header>
+  <article class="layout-single article">
+    <header class="article-header">
+      <a class="home-link" href="/">← Tony’s Blog</a>
       <h1 class="article-title">
         {{ .Title }}
       </h1>
@@ -19,18 +20,12 @@
           {{ . }}
         </p>
       {{ end }}
-      <time datetime="{{ .Date }}">
+      <time class="timestamp" datetime="{{ .Date }}">
         {{ .PublishDate.Format "2 January 2006" }}
       </time>
     </header>
 
     {{ .Content }}
-
-    {{ if (not (.Param "omitSignature")) }}
-      <div class="signature">
-        <img src="/img/sig.png" alt="Signature of 'Tony'" />
-      </div>
-    {{ end }}
 
     {{ partial "acknowledgements" . }}
 

@@ -8,7 +8,7 @@ summary: "I am starting 2021 with a new look and feel to my website."
 The turn of new year is a natural time to reflect. It is the end of one time,
 and the beginning of a new one.
 
-To mark the occasion, I set about giving my site a fresh coat of paint.</p>
+To mark the occasion, I set about giving my site a fresh coat of paint.
 
 This new look is a symbol. Much like the new year, a new look to a website does
 not mean much in itself. The updated appearance coincides with shift in focus
