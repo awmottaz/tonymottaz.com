@@ -41,6 +41,11 @@
     margin-top: 32px;
     margin-bottom: 32px;
   }
+
+  & > h2,
+  & > h3 {
+    margin-top: 2.5rem;
+  }
 }
 
 .home-link {
@@ -55,6 +60,7 @@
 .article-header {
   & > .article-title {
     margin-top: 24px;
+    font-size: var(--font-size-heading-xl);
   }
 }
 
