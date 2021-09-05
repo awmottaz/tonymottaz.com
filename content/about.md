@@ -15,7 +15,7 @@ regardless of device, browser, network speed, or ability. As such, I strive to
 meet the level AA standards outlined in the
 [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/).
 
-If you have any issues using this website, please contact me by email at
-<a href="mailto:issues@mottaz.dev?subject=Accessibility inquiry on tonymottaz.com">issues@mottaz.dev</a>.
-I take these issues seriously and will try to remedy the problem as quickly as I
-can.
+If you have any issues using this website, please
+<a href="mailto:issues@mottaz.dev?subject=Accessibility inquiry on tonymottaz.com">contact
+me by email</a> at **issues@mottaz.dev**. I take these issues seriously and will
+try to remedy the problem as quickly as I can.
