@@ -52,7 +52,7 @@ the following comment:
   first-attribute: Description of attribute.
   second-attribute?: This one is optional.
   inner: Not an attribute, but the literal .Inner content for this shortcode.
-}}
+*/}}
 ```
 
 ### CSS Methodology
