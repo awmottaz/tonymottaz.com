@@ -1,7 +1,7 @@
 ---
 title: "Creating TypeScript type guards with Yup"
 date: 2021-11-15T09:24:35-06:00
-publishDate: 2021-11-15T21:00:00-06:00
+publishDate: 2021-11-15
 summary:
   "The Yup schema builder and validation library can be used to create powerful
   type guards in TypeScript, and I will show you how!"
