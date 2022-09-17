@@ -10,8 +10,14 @@ const Image = require("@11ty/eleventy-img");
 
 async function imageShortcode(src, alt, sizes) {
   let metadata = await Image(src, {
-    widths: [300, 600],
-    formats: ["avif", "jpeg"],
+    widths: [300, 600, 1200],
+    formats: ["avif", "webp", "jpeg"],
+    sharpAvifOptions: {
+      nearLossless: true,
+    },
+    sharpWebpOptions: {
+      nearLossless: true,
+    },
   });
 
   let imageAttributes = {
@@ -21,7 +27,6 @@ async function imageShortcode(src, alt, sizes) {
     decoding: "async",
   };
 
-  // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
   return Image.generateHTML(metadata, imageAttributes);
 }
 
