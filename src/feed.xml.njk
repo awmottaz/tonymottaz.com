@@ -8,7 +8,7 @@
     "url": "https://www.tonymottaz.com/",
     "author": {
       "name": "Tony Mottaz",
-      "email": "mail@tonymottaz.com"
+      "email": "contact@tonymottaz.com"
     }
   }
 }
@@ -26,13 +26,13 @@
     <email>{{ metadata.author.email }}</email>
   </author>
   {%- for post in collections.posts | reverse %}
-  {%- set absolutePostUrl = post.url | url | absoluteUrl(metadata.url) %}
-  <entry>
-    <title>{{ post.data.title }}</title>
-    <link href="{{ absolutePostUrl }}"/>
-    <updated>{{ post.date | dateToRfc3339 }}</updated>
-    <id>{{ absolutePostUrl }}</id>
-    <content xml:lang="{{ metadata.language }}" type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
-  </entry>
+    {%- set absolutePostUrl = post.url | url | absoluteUrl(metadata.url) %}
+    <entry>
+      <title>{{ post.data.title }}</title>
+      <link href="{{ absolutePostUrl }}"/>
+      <updated>{{ post.date | dateToRfc3339 }}</updated>
+      <id>{{ absolutePostUrl }}</id>
+      <content xml:lang="{{ metadata.language }}" type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+    </entry>
   {%- endfor %}
 </feed>
