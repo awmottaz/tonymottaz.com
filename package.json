@@ -3,8 +3,7 @@
   "description": "My personal website",
   "private": true,
   "scripts": {
-    "clean": "rm -rf _site",
-    "build": "npm run clean && npx @11ty/eleventy",
+    "build": "npx @11ty/eleventy",
     "start": "npx @11ty/eleventy --serve"
   },
   "author": "Tony Mottaz <mail@tonymottaz.com>",
