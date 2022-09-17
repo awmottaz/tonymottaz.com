@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      :root {
+        font-size: 1.3rem;
+      }
+      a {
+        color: #75a3ff;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 2px;
+      }
+      a:visited {
+        color: #e78dc9;
+      }
+      a:hover {
+        color: #75e8ff;
+      }
+      body {
+        background-color: #141414;
+        color: #dadada;
+        font-family: Georgia, serif;
+      }
+      canvas,
+      img,
+      picture,
+      svg,
+      video {
+        display: block;
+        max-width: 100%;
+      }
+      figcaption {
+        font-size: 92%;
+        line-height: 1.3;
+        letter-spacing: 0.02em;
+        padding-top: 8px;
+      }
+      blockquote {
+        font-size: 96%;
+        line-height: 1.2;
+      }
+      main {
+        max-width: 39rem;
+        margin-inline: auto;
+      }
+      main.post > header {
+        -webkit-margin-after: 4rem;
+        margin-block-end: 4rem;
+      }
+      main.post > header > h1 {
+        text-align: center;
+        font-size: 2rem;
+      }
+      h2 {
+        -webkit-margin-before: 1.5em;
+        margin-block-start: 1.5em;
+      }
+      .post h2 {
+        -webkit-margin-before: 3em;
+        margin-block-start: 3em;
+      }
+      p {
+        line-height: 1.65;
+        margin-block: 1.5em;
+      }
+      main.post > header > p.subtitle {
+        text-align: center;
+        font-size: 0.9rem;
+        font-style: italic;
+      }
+      pre {
+        border: 2px solid var(--color-lightgray);
+        margin-block: 2rem;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+          Liberation Mono, monospace;
+        font-size: 0.9em;
+        color: #ff75d1;
+      }
+      :is(ul, ol) > li + li {
+        margin-top: 0.8em;
+      }
+      .post-footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        padding-bottom: 3rem;
+        text-align: center;
+      }
+      .post-footer::before {
+        content: "✶ ✶ ✶";
+        color: var(--color-lightgray);
+        display: block;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      .post-footer > nav {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+      }
+      .post-footer > nav > * {
+        position: relative;
+      }
+      .post-footer > nav > :not(:first-child)::before {
+        content: "·";
+        color: #dadada;
+        position: absolute;
+        left: -17px;
+      }
+      hr {
+        margin-block: 3em;
+      }
+      code[class*="language-"],
+      pre[class*="language-"] {
+        color: #f8f8f2;
+        background: 0 0;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.5;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+        -webkit-hyphens: none;
+        hyphens: none;
+      }
+      pre[class*="language-"] {
+        padding: 1em;
+        overflow: auto;
+        border-radius: 0.3em;
+        display: block;
+        font-size: 0.8125rem;
+      }
+      :not(pre) > code[class*="language-"],
+      pre[class*="language-"] {
+        background: #1f1f1f;
+      }
+      :not(pre) > code[class*="language-"] {
+        padding: 0.1em;
+        border-radius: 0.3em;
+        white-space: normal;
+      }
+      .line-numbers-rows > span:before,
+      .token.cdata,
+      .token.comment,
+      .token.doctype,
+      .token.prolog {
+        color: #d4d0ab;
+      }
+      .token.punctuation {
+        color: #fefefe;
+      }
+      .token.constant,
+      .token.property,
+      .token.symbol,
+      .token.tag {
+        color: #ffa07a;
+      }
+      .token.boolean,
+      .token.number {
+        color: #00e0e0;
+      }
+      .token.attr-name,
+      .token.builtin,
+      .token.char,
+      .token.selector,
+      .token.string {
+        color: #abe338;
+      }
+      .language-css .token.string,
+      .style .token.string,
+      .token.entity,
+      .token.operator,
+      .token.url,
+      .token.variable {
+        color: #00e0e0;
+      }
+      .token.atrule,
+      .token.attr-value,
+      .token.function {
+        color: gold;
+      }
+      .token.keyword {
+        color: #00e0e0;
+      }
+      .token.important,
+      .token.regex {
+        color: gold;
+      }
+      .token.bold,
+      .token.important {
+        font-weight: 700;
+      }
+      .token.italic {
+        font-style: italic;
+      }
+      .token.entity {
+        cursor: help;
+      }
+      .line-highlight {
+        background: rgba(255, 217, 0, 0.1);
+        border-top: 1px solid rgba(255, 217, 0, 0.55);
+        border-bottom: 1px solid rgba(255, 217, 0, 0.55);
+      }
+      .line-numbers .line-numbers-rows {
+        border-right: 1px solid #f8f8f2;
+      }
+      @media screen and (-ms-high-contrast: active) {
+        code[class*="language-"],
+        pre[class*="language-"] {
+          color: windowText;
+          background: window;
+        }
+        :not(pre) > code[class*="language-"],
+        pre[class*="language-"] {
+          background: window;
+        }
+        .token.important {
+          background: highlight;
+          color: window;
+          font-weight: 400;
+        }
+        .token.atrule,
+        .token.function,
+        .token.keyword,
+        .token.operator,
+        .token.selector {
+          font-weight: 700;
+        }
+        .token.attr-value,
+        .token.comment,
+        .token.doctype,
+        .token.function,
+        .token.keyword,
+        .token.operator,
+        .token.property,
+        .token.string {
+          color: highlight;
+        }
+        .token.attr-value,
+        .token.url {
+          font-weight: 400;
+        }
+      }
+      .token.deleted {
+        background-color: rgba(236, 154, 121, 0.2);
+        color: #ffc6af;
+      }
+      .token.inserted {
+        background-color: rgba(140, 189, 40, 0.2);
+        color: #ddfd9b;
+      }
+      .token.prefix.deleted,
+      .token.prefix.inserted,
+      .token.prefix.unchanged {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+    </style>
+
+    <title>Implement an indeterminate checkbox in React with TypeScript</title>
+  </head>
+
+  <body>
+    <main class="post">
+      <header>
+        <h1>Implement an indeterminate checkbox in React with TypeScript</h1>
+
+        <p class="subtitle">
+          Posted on
+          <time class="post-date" datetime="2021-03-05">05 March 2021</time>
+        </p>
+      </header>
+
+      <p>
+        This is a follow-up to my previous blog post:
+        <a href="/indeterminate-checkboxes">
+          <em>Indeterminate checkboxes are weird</em> </a
+        >. Now that we have pulled back the curtain on tri-state checkboxes, we
+        can implement a <code>Checkbox</code> component in React with
+        TypeScript. The benefits of wrapping the native element in a component
+        is that we can support an <code>indeterminate</code> prop right on the
+        component itself.
+      </p>
+
+      <p>
+        The goal is to use the <code>Checkbox</code> like so, where
+        <code>checked</code> and <code>indeterminate</code> are two boolean
+        props on the component.
+      </p>
+
+      <pre
+        class="language-jsx"
+        data-language="jsx"
+      ><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Checkbox</span></span> <span class="token attr-name">checked</span> <span class="token attr-name">indeterminate</span><span class="token punctuation">/></span></span></code></pre>
+
+      <p>Here is the full implementation:</p>
+
+      <pre
+        class="language-tsx"
+        data-language="tsx"
+      ><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span><br>  DetailedHTMLProps<span class="token punctuation">,</span><br>  forwardRef<span class="token punctuation">,</span><br>  InputHTMLAttributes<span class="token punctuation">,</span><br>  useEffect<span class="token punctuation">,</span><br>  useRef<span class="token punctuation">,</span><br><span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span><br><br><span class="token keyword">interface</span> <span class="token class-name">Props</span><br>  <span class="token keyword">extends</span> <span class="token class-name">DetailedHTMLProps<span class="token operator">&lt;</span><br>    InputHTMLAttributes<span class="token operator">&lt;</span>HTMLInputElement<span class="token operator">></span><span class="token punctuation">,</span><br>    HTMLInputElement<br>  <span class="token operator">></span></span> <span class="token punctuation">{</span><br>  <span class="token comment">/**<br>   * If `true`, the checkbox is checked. If `false`, the<br>   * checkbox is not checked. If left undefined, the checkbox<br>   * is uncontrolled.<br>   *<br>   * https://reactjs.org/docs/glossary.html#controlled-vs-uncontrolled-components<br>   */</span><br>  checked<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span><br><br>  <span class="token comment">/**<br>   * If `true`, the checkbox gives an appearance of being<br>   * in an indeterminate state.<br>   */</span><br>  indeterminate<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span><br><br>  <span class="token comment">/**<br>   * Do not pass in a `type` prop. We force the input<br>   * to be type "checkbox".<br>   */</span><br>  type<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">never</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">export</span> <span class="token keyword">const</span> Checkbox <span class="token operator">=</span> <span class="token generic-function"><span class="token function">forwardRef</span><span class="token generic class-name"><span class="token operator">&lt;</span>HTMLInputElement<span class="token punctuation">,</span> Props<span class="token operator">></span></span></span><span class="token punctuation">(</span><br>  <span class="token punctuation">(</span><span class="token punctuation">{</span> indeterminate <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span> type<span class="token punctuation">,</span> <span class="token operator">...</span>inputProps <span class="token punctuation">}</span><span class="token punctuation">,</span> ref<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token comment">// We need our own internal ref to ensure that it is</span><br>    <span class="token comment">//   1. actually defined, and</span><br>    <span class="token comment">//   2. an object ref rather than a callback ref.</span><br>    <span class="token keyword">const</span> internalRef <span class="token operator">=</span> <span class="token generic-function"><span class="token function">useRef</span><span class="token generic class-name"><span class="token operator">&lt;</span>HTMLInputElement <span class="token operator">|</span> <span class="token keyword">null</span><span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// This function is a callback ref that will keep our internal</span><br>    <span class="token comment">// ref and the forwarded parent ref synchronized.</span><br>    <span class="token keyword">function</span> <span class="token function">synchronizeRefs</span><span class="token punctuation">(</span>el<span class="token operator">:</span> HTMLInputElement <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token comment">// Update the internal ref.</span><br>      internalRef<span class="token punctuation">.</span>current <span class="token operator">=</span> el<span class="token punctuation">;</span><br><br>      <span class="token comment">// Update the provided ref.</span><br>      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>ref<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// nothing to update</span><br>      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> ref <span class="token operator">===</span> <span class="token string">"object"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        ref<span class="token punctuation">.</span>current <span class="token operator">=</span> el<span class="token punctuation">;</span><br>      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><br>        <span class="token comment">// must be a callback ref</span><br>        <span class="token function">ref</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">;</span><br>      <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">// We use an effect here to update the `indeterminate` IDL</span><br>    <span class="token comment">// attribute on the input element whenever the prop value changes.</span><br>    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>      <span class="token keyword">if</span> <span class="token punctuation">(</span>internalRef<span class="token punctuation">.</span>current<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        internalRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span>indeterminate <span class="token operator">=</span> indeterminate<span class="token punctuation">;</span><br>      <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>indeterminate<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>synchronizeRefs<span class="token punctuation">}</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token spread"><span class="token punctuation">{</span><span class="token operator">...</span>inputProps<span class="token punctuation">}</span></span><span class="token punctuation">/></span></span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+      <p>
+        You can play around with it in
+        <a
+          href="https://codesandbox.io/s/indeterminate-checkbox-dh0m5?file=/src/Checkbox.tsx:0-2017"
+          >this Codesandbox.</a
+        >
+      </p>
+
+      <p>Happy hacking!</p>
+    </main>
+
+    <footer class="post-footer">
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/now">Now</a>
+      </nav>
+    </footer>
+  </body>
+</html>

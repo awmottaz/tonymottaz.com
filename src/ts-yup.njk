@@ -1,0 +1,283 @@
+---
+layout: layouts/post.njk
+tags: posts
+title: Creating TypeScript type guards with Yup
+date: 2021-11-15
+---
+
+<p>
+  In TypeScript, a
+  <a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html"
+    >type guard</a
+  >
+  is a way to narrow the type of a value. TypeScript has many of these built in
+  to the language. For example:
+</p>
+
+{% highlight "ts" %}
+// doSomething takes a single parameter that is
+// either a string or a number.
+function doSomething(x: string | number): string {
+  // This is a type guard that narrows the type of
+  // x to only a string.
+  if (typeof x === "string") {
+    return x.toUpperCase();
+  }
+
+  // Since the conditional block always returns,
+  // the type of x here is narrowed to only a number.
+  return x.toPrecision(2);
+}
+{% endhighlight %}
+
+<p>
+  You can also define your own type guard by implementing a function whose
+  return type is a
+  <a
+    href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates"
+    >
+    <em>type predicate</em>
+  </a
+  >. The example from the TypeScript documentation is a good one:
+</p>
+
+{% highlight "ts" %}
+// This is our custom type guard. It takes an argument that
+// is either a Fish or a Bird and reports whether that
+// argument can be narrowed to the Fish type.
+function isFish(pet: Fish | Bird): pet is Fish {
+  return (pet as Fish).swim !== undefined;
+}
+{% endhighlight %}
+
+<p>Using a user-defined type guard works the same as any other type guard.</p>
+
+{% highlight "ts" %}
+// pet has the type Fish | Bird.
+let pet = getSmallPet();
+
+if (isFish(pet)) {
+  // The isFish type guard narrows the type of pet to only
+  // a Fish in this block.
+  pet.swim();
+} else {
+  // Same as before, the opposite narrowing also happens here.
+  pet.fly();
+}
+{% endhighlight %}
+
+<h2 id="yup-schemas">Yup schemas</h2>
+
+<p>
+  <a href="https://github.com/jquense/yup">Yup</a> is a JavaScript library for
+  creating data schemas that can be used to parse and validate values. You can
+  define the shape of an object using a functional programming style API. Here
+  is an example from their home page:
+</p>
+
+{% highlight "ts" %}
+import * as yup from "yup";
+
+let userSchema = yup.object().shape({
+  name: yup.string().required(),
+  age: yup.number().required().positive().integer(),
+  email: yup.string().email(),
+  website: yup.string().url(),
+  createdOn: yup.date().default(function () {
+    return new Date();
+  }),
+});
+{% endhighlight %}
+
+<p>
+  This creates a schema for an object that defines a user. Yup schemas have
+  methods that can, among other things, validate whether an object satisfies the
+  schema. For example:
+</p>
+
+{% highlight "ts" %}
+userSchema.isValidSync({
+  name: "Sam Eagle",
+  age: 47,
+  email: "seagle@example.com",
+  createdOn: new Date("1974-12-10"),
+}); // true
+
+userSchema.isValidSync({
+  something: "foo",
+  notAName: "bar",
+}); // false
+{% endhighlight %}
+
+<h2 id="putting-them-together">Putting them together</h2>
+
+<p>
+  Here is our task: we have some data that has the union type
+  <code>User | Admin</code>, and we want to greet them differently depending on
+  the type of <code>data</code>.
+</p>
+
+{% highlight "ts" %}
+const data: User | Admin = getPersona();
+
+if (isUser(data)) {
+  console.log(`Hello, ${data.name}!`);
+} else {
+  console.log(`Welcome, ${data.salutation} ${data.lastName}.`);
+}
+{% endhighlight %}
+
+<p>
+  Our goal is to implement the type guard
+  <code>isUser</code> with the following requirements:
+</p>
+
+<ul>
+  <li>
+    The <code>User</code> type is already defined (either by us or importing
+    from elsewhere).
+  </li>
+  <li>The validation is performed by a Yup schema.</li>
+  <li>
+    TypeScript enforces that the Yup schema correctly validates a
+    <code>User</code> type.
+  </li>
+</ul>
+
+<p>Here we go!</p>
+
+<p>
+  First, suppose this is the definition of a
+  <code>User</code>:
+</p>
+
+{% highlight "ts" %}
+interface User {
+  name: string;
+  age: number;
+  email?: string;
+  website?: string;
+  createdOn: Date;
+}
+{% endhighlight %}
+
+<p>
+  We will reuse our <code>userSchema</code> from before, but this time we will
+  add a type annotation to it.
+</p>
+
+{% highlight "diff-ts" %}
+- const userSchema = yup.object().shape({
++ const userSchema: yup.SchemaOf<User> = yup.object().shape({
+  name: yup.string().required(),
+  age: yup.number().required().positive().integer(),
+  email: yup.string().email(),
+  website: yup.string().url(),
+  createdOn: yup.date().default(function () {
+    return new Date();
+  }),
+});
+{% endhighlight %}
+
+  <p>
+  By adding the type assertion for
+  <code>yup.SchemaOf&lt;User&gt;</code>, we will now have assurance that the
+  schema definition agrees with our type definition. To see this in action, try
+  removing one of the properties.
+</p>
+
+  {% highlight "ts" %}
+// ERROR: Property 'website' is missing in type '...'
+const userSchema: yup.SchemaOf<User> = yup.object().shape({
+  name: yup.string().required(),
+  age: yup.number().required().positive().integer(),
+  email: yup.string().email(),
+  createdOn: yup.date().default(function () {
+    return new Date();
+  }),
+});
+{% endhighlight %}
+
+    <p>
+  Be warned: the Yup schema can be <em>more</em> strict than the type it’s meant
+  to check for, such as requiring more properties on the object. It has to be
+  able to do this (there is no TypeScript type for “positive integer”). What you
+  are guaranteed is that it will check <em>at least</em> for the types you pass
+  in.
+</p>
+
+    <p>
+  Now, this is already pretty good, and calling
+  <code>userSchema.isValidSync(data)</code>
+      <em>will</em> narrow the type of <code>data</code>. However, it’s not quite
+  perfect—the <code>else</code> branch is not narrowed!
+</p>
+
+    {% highlight "ts" %}
+const data: User | Admin = getPersona();
+
+if (isUser(data)) {
+  console.log(`Hello, ${data.name}!`);
+} else {
+  // ERROR: Property 'salutation' does not exist on type 'User'.
+  console.log(`Welcome, ${data.salutation} ${data.lastName}.`);
+}
+{% endhighlight %}
+
+    <p>
+  Looking at the
+  <a
+    href="https://github.com/jquense/yup/blob/94cfd11b3f23e10f731efac05c5525829d10ded1/src/schema.ts?_pjax=%23js-repo-pjax-container%3Afirst-of-type%2C%20div%5Bitemtype%3D%22http%3A%2F%2Fschema.org%2FSoftwareSourceCode%22%5D%20main%3Afirst-of-type%2C%20%5Bdata-pjax-container%5D%3Afirst-of-type#L461-L464"
+    >source code for <code>isValidSync</code>
+      </a
+  >, we can see why this happens. The <code>isValidSync</code> method is a type
+  guard for a different type: <code>yup.Asserts&lt;User&gt;</code>, which is
+  <a href="https://www.typescriptlang.org/docs/handbook/type-compatibility.html"
+    >assignable</a
+  >
+  to our <code>User</code> type (hence why the <code>if</code> branch passes the
+  type checker), but it is not our <code>User</code> type. This means that in
+  the <code>else</code> branch, the type of <code>data</code> is still
+  <code>User | Admin</code>.
+</p>
+
+    <p>
+  To get around this, we still need to define our own type guard. Thankfully,
+  all of the hard work has been done for us by Yup.
+</p>
+
+    {% highlight "ts" %}
+function isUser(value: unknown): value is User {
+  return userSchema.isValidSync(value);
+}
+{% endhighlight %}
+
+    <p>That’s it! Now our original example works. Here we put it all together:</p>
+
+    {% highlight "ts" %}
+import * as yup from "yup";
+import type { User } from "./types";
+import { getPersona } from "./persona";
+
+const userSchema: yup.SchemaOf<User> = yup.object().shape({
+  name: yup.string().required(),
+  age: yup.number().required().positive().integer(),
+  email: yup.string().email(),
+  website: yup.string().url(),
+  createdOn: yup.date().default(function () {
+    return new Date();
+  }),
+});
+
+function isUser(value: unknown): value is User {
+  return userSchema.isValidSync(value);
+}
+
+const data: User | Admin = getPersona();
+
+if (isUser(data)) {
+  console.log(`Hello, ${data.name}!`);
+} else {
+  console.log(`Welcome, ${data.salutation} ${data.lastName}.`);
+}
+{% endhighlight %}

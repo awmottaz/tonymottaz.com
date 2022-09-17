@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      :root {
+        font-size: 1.3rem;
+      }
+      a {
+        color: #75a3ff;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 2px;
+      }
+      a:visited {
+        color: #e78dc9;
+      }
+      a:hover {
+        color: #75e8ff;
+      }
+      body {
+        background-color: #141414;
+        color: #dadada;
+        font-family: Georgia, serif;
+      }
+      canvas,
+      img,
+      picture,
+      svg,
+      video {
+        display: block;
+        max-width: 100%;
+      }
+      figcaption {
+        font-size: 92%;
+        line-height: 1.3;
+        letter-spacing: 0.02em;
+        padding-top: 8px;
+      }
+      blockquote {
+        font-size: 96%;
+        line-height: 1.2;
+      }
+      main {
+        max-width: 39rem;
+        margin-inline: auto;
+      }
+      main.post > header {
+        -webkit-margin-after: 4rem;
+        margin-block-end: 4rem;
+      }
+      main.post > header > h1 {
+        text-align: center;
+        font-size: 2rem;
+      }
+      h2 {
+        -webkit-margin-before: 1.5em;
+        margin-block-start: 1.5em;
+      }
+      .post h2 {
+        -webkit-margin-before: 3em;
+        margin-block-start: 3em;
+      }
+      p {
+        line-height: 1.65;
+        margin-block: 1.5em;
+      }
+      main.post > header > p.subtitle {
+        text-align: center;
+        font-size: 0.9rem;
+        font-style: italic;
+      }
+      pre {
+        border: 2px solid var(--color-lightgray);
+        margin-block: 2rem;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+          Liberation Mono, monospace;
+        font-size: 0.9em;
+        color: #ff75d1;
+      }
+      :is(ul, ol) > li + li {
+        margin-top: 0.8em;
+      }
+      .post-footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        padding-bottom: 3rem;
+        text-align: center;
+      }
+      .post-footer::before {
+        content: "✶ ✶ ✶";
+        color: var(--color-lightgray);
+        display: block;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      .post-footer > nav {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+      }
+      .post-footer > nav > * {
+        position: relative;
+      }
+      .post-footer > nav > :not(:first-child)::before {
+        content: "·";
+        color: #dadada;
+        position: absolute;
+        left: -17px;
+      }
+      hr {
+        margin-block: 3em;
+      }
+      code[class*="language-"],
+      pre[class*="language-"] {
+        color: #f8f8f2;
+        background: 0 0;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.5;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+        -webkit-hyphens: none;
+        hyphens: none;
+      }
+      pre[class*="language-"] {
+        padding: 1em;
+        overflow: auto;
+        border-radius: 0.3em;
+        display: block;
+        font-size: 0.8125rem;
+      }
+      :not(pre) > code[class*="language-"],
+      pre[class*="language-"] {
+        background: #1f1f1f;
+      }
+      :not(pre) > code[class*="language-"] {
+        padding: 0.1em;
+        border-radius: 0.3em;
+        white-space: normal;
+      }
+      .line-numbers-rows > span:before,
+      .token.cdata,
+      .token.comment,
+      .token.doctype,
+      .token.prolog {
+        color: #d4d0ab;
+      }
+      .token.punctuation {
+        color: #fefefe;
+      }
+      .token.constant,
+      .token.property,
+      .token.symbol,
+      .token.tag {
+        color: #ffa07a;
+      }
+      .token.boolean,
+      .token.number {
+        color: #00e0e0;
+      }
+      .token.attr-name,
+      .token.builtin,
+      .token.char,
+      .token.selector,
+      .token.string {
+        color: #abe338;
+      }
+      .language-css .token.string,
+      .style .token.string,
+      .token.entity,
+      .token.operator,
+      .token.url,
+      .token.variable {
+        color: #00e0e0;
+      }
+      .token.atrule,
+      .token.attr-value,
+      .token.function {
+        color: gold;
+      }
+      .token.keyword {
+        color: #00e0e0;
+      }
+      .token.important,
+      .token.regex {
+        color: gold;
+      }
+      .token.bold,
+      .token.important {
+        font-weight: 700;
+      }
+      .token.italic {
+        font-style: italic;
+      }
+      .token.entity {
+        cursor: help;
+      }
+      .line-highlight {
+        background: rgba(255, 217, 0, 0.1);
+        border-top: 1px solid rgba(255, 217, 0, 0.55);
+        border-bottom: 1px solid rgba(255, 217, 0, 0.55);
+      }
+      .line-numbers .line-numbers-rows {
+        border-right: 1px solid #f8f8f2;
+      }
+      @media screen and (-ms-high-contrast: active) {
+        code[class*="language-"],
+        pre[class*="language-"] {
+          color: windowText;
+          background: window;
+        }
+        :not(pre) > code[class*="language-"],
+        pre[class*="language-"] {
+          background: window;
+        }
+        .token.important {
+          background: highlight;
+          color: window;
+          font-weight: 400;
+        }
+        .token.atrule,
+        .token.function,
+        .token.keyword,
+        .token.operator,
+        .token.selector {
+          font-weight: 700;
+        }
+        .token.attr-value,
+        .token.comment,
+        .token.doctype,
+        .token.function,
+        .token.keyword,
+        .token.operator,
+        .token.property,
+        .token.string {
+          color: highlight;
+        }
+        .token.attr-value,
+        .token.url {
+          font-weight: 400;
+        }
+      }
+      .token.deleted {
+        background-color: rgba(236, 154, 121, 0.2);
+        color: #ffc6af;
+      }
+      .token.inserted {
+        background-color: rgba(140, 189, 40, 0.2);
+        color: #ddfd9b;
+      }
+      .token.prefix.deleted,
+      .token.prefix.inserted,
+      .token.prefix.unchanged {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+    </style>
+
+    <title>Indeterminate checkboxes are weird</title>
+  </head>
+
+  <body>
+    <main class="post">
+      <header>
+        <h1>Indeterminate checkboxes are weird</h1>
+
+        <p class="subtitle">
+          Posted on
+          <time class="post-date" datetime="2021-03-05">05 March 2021</time>
+        </p>
+      </header>
+
+      <p>
+        A checkbox usually has two states: checked and unchecked. But
+        indeterminate checkboxes are in a third state: neither checked nor
+        unchecked. The “checkedness” is not determined.
+      </p>
+
+      <p>
+        You have seen these before. The most common reason to have an
+        indeterminate checkbox is when it is controlling a set of checkboxes.
+        When none of the checkboxes are checked, neither is the master checkbox.
+        When all of them are checked, so is the master checkbox. But if some are
+        checked and some are not checked? The master checkbox state cannot be
+        determined—it is indeterminate!
+      </p>
+
+      <p>
+        For example, each email in your GMail inbox has its own checkbox to
+        select it. Up top, there is another checkbox. If you check that one, all
+        of the emails are selected. Uncheck to deselect all emails.
+      </p>
+
+      <p>
+        If you only select a few emails, then the state of that checkbox cannot
+        be determined. You have neither selected all of the emails, nor have you
+        deselected all of them.
+      </p>
+
+      <figure>
+        <picture
+          ><source
+            type="image/avif"
+            srcset="
+              /img/FdqdKgynyK-300.avif 300w,
+              /img/FdqdKgynyK-600.avif 600w
+            "
+            sizes="38rem" />
+          <source
+            type="image/jpeg"
+            srcset="
+              /img/FdqdKgynyK-300.jpeg 300w,
+              /img/FdqdKgynyK-600.jpeg 600w
+            "
+            sizes="38rem" />
+          <img
+            alt="A screenshot of a list of emails in GMail. Three of the seven visible emails are selected. There is an arrow pointing to a checkbox which controls the select all or none behavior of the emails. That checkbox appears with a line in the middle, indicating an indeterminate state."
+            loading="lazy"
+            decoding="async"
+            src="/img/FdqdKgynyK-300.jpeg"
+            width="600"
+            height="172"
+        /></picture>
+        <figcaption>
+          The checkbox to select all or none of your emails appears in an
+          indeterminate state when only a few of the emails are selected.
+        </figcaption>
+      </figure>
+
+      <h2>How do we make this happen?</h2>
+
+      <p>
+        Although indeterminate checkboxes are conceptually simple, implementing
+        them correctly on a web page is not. We will be referencing the
+        <a
+          href="https://html.spec.whatwg.org/multipage/input.html#checkbox-state-(type=checkbox)"
+          >HTML specification about checkboxes</a
+        >
+        and using that information to implement indeterminate checkboxes.
+      </p>
+
+      <p>Let’s go!</p>
+
+      <h2>Content and IDL attributes</h2>
+
+      <p>The first part of the specification we need to understand is this:</p>
+
+      <blockquote
+        cite="https://html.spec.whatwg.org/multipage/input.html#checkbox-state-(type=checkbox)"
+      >
+        <p>
+          If the element’s indeterminate IDL attribute is set to true, then the
+          control’s selection should be obscured as if the control was in a
+          third, indeterminate, state.
+        </p>
+      </blockquote>
+
+      <p>This begs the question: What is an “IDL attribute”?</p>
+
+      <p>Glad you asked.</p>
+
+      <p>
+        In HTML, elements have “content attributes”. These are the attributes
+        that you can set on HTML elements, such as <code>id</code> and
+        <code>class</code>.
+      </p>
+
+      <pre
+        class="language-html"
+        data-language="html"
+      ><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>neat-paragraph<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>neato<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Content attributes are neat<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
+
+      <p>
+        HTML code is interpreted by the browser on the web page’s first load in
+        order to initialize the DOM. You can use content attributes to set up
+        the initial state on the DOM nodes created by your HTML code.
+      </p>
+
+      <p>
+        Later on, if you wanted to get the class name for this element in
+        JavaScript, you could do this:
+      </p>
+
+      <pre
+        class="language-js"
+        data-language="js"
+      ><code class="language-js"><span class="token keyword">const</span> p <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"#neat-paragraph"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>className<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "neato"</span></code></pre>
+
+      <p>
+        That property <code>className</code> on the <code>p</code> element is an
+        “IDL attribute” for that element. “IDL” stands for “Interface Definition
+        Language”. The <a href="https://heycam.github.io/webidl/">Web IDL</a> is
+        the specification for IDL attributes to be implemented in web browsers.
+        In JavaScript, we can use IDL attributes to interact with the state of
+        DOM nodes.
+      </p>
+
+      <p>So to sum up:</p>
+
+      <ul>
+        <li>
+          <strong>Content attributes:</strong>
+          The attributes you set on DOM nodes by writing them in your HTML code.
+        </li>
+
+        <li>
+          <strong>IDL attributes:</strong>
+          The attributes on DOM nodes that you interact with in JavaScript code.
+        </li>
+      </ul>
+
+      <p>
+        Content attributes and IDL attributes often correspond, but not always.
+        In the example above, we see that the content attribute is called
+        <code>class</code> but the IDL attribute is called
+        <code>className</code>. The kinds of things you can do with those
+        attributes are also totally different between HTML and JavaScript.
+      </p>
+
+      <p>
+        The <code>indeterminate</code> attribute is one case of an IDL attribute
+        that does not have any corresponding content attribute. This means that
+        the only way to set this state is with JavaScript.
+      </p>
+
+      <pre
+        class="language-js"
+        data-language="js"
+      ><code class="language-js"><span class="token keyword">const</span> cb <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"#select-all-checkbox"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>cb<span class="token punctuation">.</span>indeterminate <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span></code></pre>
+
+      <h2>Checkboxes only have two states</h2>
+
+      <p>
+        The next important thing we need to understand from the HTML spec is
+        this:
+      </p>
+
+      <blockquote
+        cite="https://html.spec.whatwg.org/multipage/input.html#checkbox-state-(type=checkbox)"
+      >
+        <p>
+          The control is never a true tri-state control, even if the element’s
+          <code>indeterminate</code> IDL attribute is set to true. The
+          <code>indeterminate</code> IDL attribute only gives the appearance of
+          a third state.
+        </p>
+      </blockquote>
+
+      <p>
+        This is good to keep in mind. Whether or not a checkbox is checked is
+        always determined; it is always true or false. This matters when you are
+        handling the submitted values from a form. It will never submit an
+        indeterminate value.
+      </p>
+
+      <h2>A note about ARIA</h2>
+
+      <p>
+        <a href="/accessibility"
+          >I am always trying to keep my websites accessible</a
+        >, and you should, too.
+      </p>
+
+      <p>
+        To keep things accessible, it is important that we follow the
+        <a href="https://www.w3.org/WAI/">ARIA guidelines from the W3C</a>. They
+        have excellent documentation!
+      </p>
+
+      <p>
+        For checkboxes, there is an <code>aria-checked</code> attribute that you
+        could set on the checkbox. It is
+        <a href="https://www.w3.org/TR/html-aria/#att-checked"
+          >strongly recommended that you don’t do this</a
+        >. The reason for this is that it would be really bad for
+        <code>aria-checked</code> to disagree with the actual state of the
+        element.
+      </p>
+
+      <p>
+        The good news is that the value of <code>aria-checked</code> is
+        automatically calculated for you!
+      </p>
+
+      <figure>
+        <picture
+          ><source
+            type="image/avif"
+            srcset="
+              /img/T5y2I4UpEU-300.avif 300w,
+              /img/T5y2I4UpEU-600.avif 600w
+            "
+            sizes="38rem" />
+          <source
+            type="image/jpeg"
+            srcset="
+              /img/T5y2I4UpEU-300.jpeg 300w,
+              /img/T5y2I4UpEU-600.jpeg 600w
+            "
+            sizes="38rem" />
+          <img
+            alt="A screenshot of a checkbox in an indeterminate state, with the Chrome developer tools opened next to it in the Accessibility tab. The computed ARIA properties include a property called 'checked' with a value of 'mixed', corresponding to the state of the checkbox."
+            loading="lazy"
+            decoding="async"
+            src="/img/T5y2I4UpEU-300.jpeg"
+            width="600"
+            height="184"
+        /></picture>
+        <figcaption>
+          The Chrome developer tools has an Accessibility tab where we can see
+          the computed ARIA attributes for the elements in the DOM. As you can
+          see, the computed <code>Checked</code>
+          value for an indeterminate checkbox is “mixed”.
+        </figcaption>
+      </figure>
+
+      <p>
+        I don’t see any reason why you would need to manually set the
+        <code>aria-checked</code> attribute for a checkbox, unless you are
+        building one from scratch out of <code>div</code>
+        elements.
+      </p>
+
+      <p>
+        Perhaps you think you need this so that you can write a CSS selector for
+        indeterminate checkboxes.
+      </p>
+
+      <p>However…</p>
+
+      <h2>There’s a CSS selector for that</h2>
+
+      <p>
+        More good news! CSS allows us to select checkboxes in any of the three
+        states using pseudo-classes.
+      </p>
+
+      <ul>
+        <li>
+          The <code>:checked</code> pseudo-class selects checkboxes that are
+          checked.
+        </li>
+        <li>
+          We can use <code>:not(:checked)</code> to select for checkboxes that
+          are not checked.
+        </li>
+        <li>
+          The <code>:indeterminate</code> pseudo-class selects checkboxes in an
+          indeterminate state.
+        </li>
+      </ul>
+
+      <hr />
+
+      <p>
+        I hope you found this helpful! See
+        <a href="/react-ts-indeterminate-checkbox">the follow-up blog post</a>
+        where we implement an indeterminate checkbox using React and TypeScript.
+      </p>
+    </main>
+
+    <footer class="post-footer">
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/now">Now</a>
+      </nav>
+    </footer>
+  </body>
+</html>

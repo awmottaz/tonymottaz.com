@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      :root {
+        font-size: 1.3rem;
+      }
+      a {
+        color: #75a3ff;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 2px;
+      }
+      a:visited {
+        color: #e78dc9;
+      }
+      a:hover {
+        color: #75e8ff;
+      }
+      body {
+        background-color: #141414;
+        color: #dadada;
+        font-family: Georgia, serif;
+      }
+      canvas,
+      img,
+      picture,
+      svg,
+      video {
+        display: block;
+        max-width: 100%;
+      }
+      figcaption {
+        font-size: 92%;
+        line-height: 1.3;
+        letter-spacing: 0.02em;
+        padding-top: 8px;
+      }
+      blockquote {
+        font-size: 96%;
+        line-height: 1.2;
+      }
+      main {
+        max-width: 39rem;
+        margin-inline: auto;
+      }
+      main.post > header {
+        -webkit-margin-after: 4rem;
+        margin-block-end: 4rem;
+      }
+      main.post > header > h1 {
+        text-align: center;
+        font-size: 2rem;
+      }
+      h2 {
+        -webkit-margin-before: 1.5em;
+        margin-block-start: 1.5em;
+      }
+      .post h2 {
+        -webkit-margin-before: 3em;
+        margin-block-start: 3em;
+      }
+      p {
+        line-height: 1.65;
+        margin-block: 1.5em;
+      }
+      main.post > header > p.subtitle {
+        text-align: center;
+        font-size: 0.9rem;
+        font-style: italic;
+      }
+      pre {
+        border: 2px solid var(--color-lightgray);
+        margin-block: 2rem;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+          Liberation Mono, monospace;
+        font-size: 0.9em;
+        color: #ff75d1;
+      }
+      :is(ul, ol) > li + li {
+        margin-top: 0.8em;
+      }
+      .post-footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        padding-bottom: 3rem;
+        text-align: center;
+      }
+      .post-footer::before {
+        content: "✶ ✶ ✶";
+        color: var(--color-lightgray);
+        display: block;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      .post-footer > nav {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+      }
+      .post-footer > nav > * {
+        position: relative;
+      }
+      .post-footer > nav > :not(:first-child)::before {
+        content: "·";
+        color: #dadada;
+        position: absolute;
+        left: -17px;
+      }
+      hr {
+        margin-block: 3em;
+      }
+      code[class*="language-"],
+      pre[class*="language-"] {
+        color: #f8f8f2;
+        background: 0 0;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.5;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+        -webkit-hyphens: none;
+        hyphens: none;
+      }
+      pre[class*="language-"] {
+        padding: 1em;
+        overflow: auto;
+        border-radius: 0.3em;
+        display: block;
+        font-size: 0.8125rem;
+      }
+      :not(pre) > code[class*="language-"],
+      pre[class*="language-"] {
+        background: #1f1f1f;
+      }
+      :not(pre) > code[class*="language-"] {
+        padding: 0.1em;
+        border-radius: 0.3em;
+        white-space: normal;
+      }
+      .line-numbers-rows > span:before,
+      .token.cdata,
+      .token.comment,
+      .token.doctype,
+      .token.prolog {
+        color: #d4d0ab;
+      }
+      .token.punctuation {
+        color: #fefefe;
+      }
+      .token.constant,
+      .token.property,
+      .token.symbol,
+      .token.tag {
+        color: #ffa07a;
+      }
+      .token.boolean,
+      .token.number {
+        color: #00e0e0;
+      }
+      .token.attr-name,
+      .token.builtin,
+      .token.char,
+      .token.selector,
+      .token.string {
+        color: #abe338;
+      }
+      .language-css .token.string,
+      .style .token.string,
+      .token.entity,
+      .token.operator,
+      .token.url,
+      .token.variable {
+        color: #00e0e0;
+      }
+      .token.atrule,
+      .token.attr-value,
+      .token.function {
+        color: gold;
+      }
+      .token.keyword {
+        color: #00e0e0;
+      }
+      .token.important,
+      .token.regex {
+        color: gold;
+      }
+      .token.bold,
+      .token.important {
+        font-weight: 700;
+      }
+      .token.italic {
+        font-style: italic;
+      }
+      .token.entity {
+        cursor: help;
+      }
+      .line-highlight {
+        background: rgba(255, 217, 0, 0.1);
+        border-top: 1px solid rgba(255, 217, 0, 0.55);
+        border-bottom: 1px solid rgba(255, 217, 0, 0.55);
+      }
+      .line-numbers .line-numbers-rows {
+        border-right: 1px solid #f8f8f2;
+      }
+      @media screen and (-ms-high-contrast: active) {
+        code[class*="language-"],
+        pre[class*="language-"] {
+          color: windowText;
+          background: window;
+        }
+        :not(pre) > code[class*="language-"],
+        pre[class*="language-"] {
+          background: window;
+        }
+        .token.important {
+          background: highlight;
+          color: window;
+          font-weight: 400;
+        }
+        .token.atrule,
+        .token.function,
+        .token.keyword,
+        .token.operator,
+        .token.selector {
+          font-weight: 700;
+        }
+        .token.attr-value,
+        .token.comment,
+        .token.doctype,
+        .token.function,
+        .token.keyword,
+        .token.operator,
+        .token.property,
+        .token.string {
+          color: highlight;
+        }
+        .token.attr-value,
+        .token.url {
+          font-weight: 400;
+        }
+      }
+      .token.deleted {
+        background-color: rgba(236, 154, 121, 0.2);
+        color: #ffc6af;
+      }
+      .token.inserted {
+        background-color: rgba(140, 189, 40, 0.2);
+        color: #ddfd9b;
+      }
+      .token.prefix.deleted,
+      .token.prefix.inserted,
+      .token.prefix.unchanged {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+    </style>
+
+    <title>Tony Mottaz’s Blog</title>
+  </head>
+
+  <body>
+    <main>
+      <h1>Tony Mottaz’s Blog</h1>
+
+      <nav>
+        <p>
+          The <a href="/about">about page</a> has information about me and about
+          this website.
+        </p>
+        <p>You can also see <a href="/now">what I’m doing now</a>.</p>
+      </nav>
+
+      <h2>All blog posts</h2>
+
+      <ul>
+        <li>
+          <a href="/ts-yup/">Creating TypeScript type guards with Yup</a>
+        </li>
+
+        <li>
+          <a href="/react-ts-indeterminate-checkbox/"
+            >Implement an indeterminate checkbox in React with TypeScript</a
+          >
+        </li>
+
+        <li>
+          <a href="/indeterminate-checkboxes/"
+            >Indeterminate checkboxes are weird</a
+          >
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
