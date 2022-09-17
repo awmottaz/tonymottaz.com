@@ -50,6 +50,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(syntaxHighlight, {
     preAttributes: {
+      tabindex: "0",
       "data-language": function ({ language }) {
         return language;
       },
