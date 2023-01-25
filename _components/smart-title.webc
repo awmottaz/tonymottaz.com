@@ -1,0 +1,4 @@
+<script webc:type="js" webc:is="template">
+  const finalTitle = title ? `${title} - Tony Mottaz` : "Tony Mottaz";
+  `<title>${finalTitle}</title>`;
+</script>

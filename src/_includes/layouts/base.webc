@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="me" href="https://fosstodon.org/@tonymottaz" />
+
+    <smart-title></smart-title>
+  </head>
+  <body>
+    <nav>
+      <h1>Tony Mottaz</h1>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/now">Now</a></li>
+      </ul>
+    </nav>
+
+    <main @html="content"></main>
+
+    <footer>
+      <p>
+        <template webc:type="11ty" 11ty:type="njk"
+          >&copy; {% year %} Tony Mottaz</template
+        >
+      </p>
+    </footer>
+  </body>
+</html>

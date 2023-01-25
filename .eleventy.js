@@ -1,66 +1,28 @@
 const { DateTime } = require("luxon");
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const prettier = require("prettier");
-const postcss = require("postcss");
-const autoprefixer = require("autoprefixer");
-const cssnesting = require("postcss-nesting");
-const csso = require("postcss-csso");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-const Image = require("@11ty/eleventy-img");
-
-async function imageShortcode(src, alt, sizes) {
-  let metadata = await Image(src, {
-    widths: [300, 600, 1200],
-    formats: ["avif", "webp", "jpeg"],
-    sharpAvifOptions: {
-      nearLossless: true,
-    },
-    sharpWebpOptions: {
-      nearLossless: true,
-    },
-  });
-
-  let imageAttributes = {
-    alt,
-    sizes,
-    loading: "lazy",
-    decoding: "async",
-  };
-
-  return Image.generateHTML(metadata, imageAttributes);
-}
+const pluginWebc = require("@11ty/eleventy-plugin-webc");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("CNAME");
-  eleventyConfig.addPassthroughCopy(".nojekyll");
-  eleventyConfig.addPassthroughCopy("font");
-  eleventyConfig.addPassthroughCopy("img");
+  eleventyConfig.addPlugin(pluginWebc);
 
-  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-
-  eleventyConfig.addFilter("postcss", function (code) {
-    return postcss([autoprefixer, cssnesting(), csso]).process(code).css;
-  });
+  // https://www.11ty.dev/docs/permalinks/#globally-disable-templating-in-permalinks
+  eleventyConfig.setDynamicPermalinks(false);
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+  // TODO: replace with Temporal
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
   });
 
+  // TODO: replace with Temporal
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
       "dd LLLL yyyy"
     );
   });
 
-  eleventyConfig.addPlugin(syntaxHighlight, {
-    preAttributes: {
-      tabindex: "0",
-      "data-language": function ({ language }) {
-        return language;
-      },
-    },
-  });
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   eleventyConfig.addPlugin(pluginRss);
 
