@@ -1,20 +1,19 @@
 {
-  "name": "tonymottaz.com",
-  "description": "My personal website",
-  "private": true,
-  "scripts": {
-    "build": "npx @11ty/eleventy",
-    "start": "npx @11ty/eleventy --serve"
-  },
-  "author": "Tony Mottaz <mail@tonymottaz.com>",
-  "license": "SEE LICENSE IN LICENSE.txt",
-  "dependencies": {
-    "@11ty/eleventy": "beta",
-    "@11ty/eleventy-img": "2.0.1",
-    "@11ty/eleventy-plugin-rss": "1.2.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "4.2.0",
-    "@11ty/eleventy-plugin-webc": "^0.8.1",
-    "luxon": "3.2.1",
-    "prettier": "2.8.3"
-  }
+	"name": "tonymottaz.com",
+	"description": "My personal website",
+	"private": true,
+	"scripts": {
+		"build": "npx @11ty/eleventy",
+		"start": "npx @11ty/eleventy --serve --quiet"
+	},
+	"author": "Tony Mottaz <mail@tonymottaz.com>",
+	"license": "SEE LICENSE IN LICENSE.txt",
+	"devDependencies": {
+		"@11ty/eleventy": "2.0.0",
+		"@11ty/eleventy-img": "3.0.0",
+		"@11ty/eleventy-plugin-rss": "1.2.0",
+		"@11ty/eleventy-plugin-syntaxhighlight": "4.2.0",
+		"@11ty/eleventy-plugin-webc": "0.8.1",
+		"prettier": "2.8.4"
+	}
 }
