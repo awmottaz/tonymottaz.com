@@ -8,7 +8,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(pluginBundle);
 
 	return {
-		templateFormats: ["md", "njk"],
+		templateFormats: ["html", "md", "njk"],
 		markdownTemplateEngine: "njk",
 		dir: {
 			input: "content",
