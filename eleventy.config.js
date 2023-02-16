@@ -1,4 +1,12 @@
+const pluginBundle = require("@11ty/eleventy-plugin-bundle");
+
 module.exports = function (eleventyConfig) {
+	eleventyConfig.addPassthroughCopy({
+		"./static/": "/",
+	});
+
+	eleventyConfig.addPlugin(pluginBundle);
+
 	return {
 		templateFormats: ["md", "njk"],
 		markdownTemplateEngine: "njk",

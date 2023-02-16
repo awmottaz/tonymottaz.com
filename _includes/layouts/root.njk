@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ title or site.title }}</title>
+
+		<meta name="generator" content="{{ eleventy.generator }}">
+
+		<link rel="me" href="https://fosstodon.org/@tonymottaz"/>
+
+		{%- css %}{% include "static/css/index.css" %}{% endcss %}
+
+		<style>
+			{% getBundle "css" %}
+		</style>
+	</head>
+	<body>
+		<a href="#skip" class="screen-reader screen-reader-focusable">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">{{ metadata.title }}</a>
+
+			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+			<nav>
+				<h2 class="screen-reader">Top level navigation menu</h2>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			{{ content | safe }}
+		</main>
+
+		<footer>
+			<p>Copyright © 2023 Tony Mottaz</p>
+		</footer>
+	</body>
+</html>
