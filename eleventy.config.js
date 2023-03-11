@@ -1,5 +1,6 @@
 const { DateTime } = require("luxon");
 const pluginBundle = require("@11ty/eleventy-plugin-bundle");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
@@ -7,6 +8,8 @@ module.exports = function (eleventyConfig) {
 	});
 
 	eleventyConfig.addPlugin(pluginBundle);
+
+	eleventyConfig.addPlugin(pluginRss);
 
 	eleventyConfig.addFilter("htmlDateString", (dateObj) => {
 		// dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string

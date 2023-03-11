@@ -1,3 +1,11 @@
 {
-	"title": "Tony Mottaz"
+	"title": "Tony Mottaz",
+	"url": "https://www.tonymottaz.com",
+	"description": "The personal blog of Tony Mottaz",
+	"language": "en",
+	"author": {
+		"name": "Tony Mottaz",
+		"email": "mail@tonymottaz.com",
+		"url": "https://www.tonymottaz.com"
+	}
 }
