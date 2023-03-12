@@ -1,0 +1,17 @@
+---
+layout: layouts/root.njk
+---
+
+<header>
+	<h1>{{ title }}</h1>
+	<header>
+		<nav class="breadcrumbs">
+			<h2 class="screen-reader">Top level navigation menu</h2>
+			<a href="/">Tony Mottaz</a>
+			<a href="/blog">Blog posts</a>
+			<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+		</nav>
+	</header>
+</header>
+
+{{ content | safe }}

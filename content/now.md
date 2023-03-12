@@ -1,5 +1,5 @@
 ---
-layout: layouts/root.njk
+layout: layouts/now.njk
 title: Now - Tony Mottaz
 ---
 

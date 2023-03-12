@@ -1,0 +1,17 @@
+---
+layout: layouts/root.njk
+---
+
+<a href="#skip" class="screen-reader screen-reader-focusable">Skip to main content</a>
+
+<header>
+	<nav class="breadcrumbs">
+		<h2 class="screen-reader">Top level navigation menu</h2>
+		<a href="/">Tony Mottaz</a>
+		<span>Now</span>
+	</nav>
+</header>
+
+<main id="skip">
+	{{ content | safe }}
+</main>

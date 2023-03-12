@@ -1,0 +1,25 @@
+---
+layout: layouts/root.njk
+eleventyExcludeFromCollections: true
+---
+
+<header>
+	<h1>Blog posts</h1>
+	<nav class="breadcrumbs">
+		<h2 class="screen-reader">Top level navigation menu</h2>
+		<a href="/">Tony Mottaz</a>
+		<span>Blog posts</span>
+	</nav>
+</header>
+
+<ul>
+	{%- for post in collections.post | reverse -%}
+		<li>
+			<a href="{{post.url}}">
+				<span class="post-title">{{ post.data.title }}</span>
+			</a>
+			&mdash;
+			<time datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | readableDate }}</time>
+		</li>
+	{%- endfor -%}
+</ul>
