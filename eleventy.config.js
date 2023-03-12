@@ -1,4 +1,5 @@
 const { DateTime } = require("luxon");
+const htmlmin = require("html-minifier");
 const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
@@ -23,6 +24,18 @@ module.exports = function (eleventyConfig) {
 		return new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(
 			dateObj
 		);
+	});
+
+	eleventyConfig.addTransform("htmlmin", function (content) {
+		if (!this.page.outputPath?.endsWith(".html")) {
+			return content;
+		}
+
+		return htmlmin.minify(content, {
+			useShortDoctype: true,
+			removeComments: true,
+			collapseWhitespace: true,
+		});
 	});
 
 	return {

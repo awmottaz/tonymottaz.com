@@ -68,14 +68,35 @@ The snippet below is copied from that article.
 
 :root {
 	font-size: 1.2rem;
+
+	--content-width: 66ch;
 }
 
 body {
 	font-family: Bould, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
+	line-height: 1.4;
 }
 
 a {
 	text-underline-offset: 2px;
+}
+
+.layout {
+	padding-block: 48px;
+	padding-inline-start: 64px;
+	max-width: var(--content-width);
+}
+
+.link-list {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	font-family: "JetBrains Mono", monospace;
+}
+.link-list > .link-item + .link-item::before {
+	content: "•";
+	margin-inline: 12px;
 }
