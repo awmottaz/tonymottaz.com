@@ -1,3 +1,24 @@
+@font-face {
+	font-family: Bould;
+	src: url("/fonts/bould-regular-webfont.woff2") format("woff2");
+}
+@font-face {
+	font-family: Bould;
+	src: url("/fonts/bould-bold-webfont.woff2") format("woff2");
+	font-weight: 600;
+}
+@font-face {
+	font-family: Bould;
+	src: url("/fonts/bould-regularitalic-webfont.woff2") format("woff2");
+	font-style: italic;
+}
+@font-face {
+	font-family: Bould;
+	src: url("/fonts/bould-bolditalic-webfont.woff2") format("woff2");
+	font-weight: 600;
+	font-style: italic;
+}
+
 /*
 If you want something to be visually hidden, but still accessible to screen readers, then you need
 to apply a smattering of styles for this to work correctly. The MDN points out that `display: none`
@@ -43,4 +64,18 @@ The snippet below is copied from that article.
 	position: static;
 	white-space: normal;
 	width: auto;
+}
+
+:root {
+	font-size: 1.2rem;
+}
+
+body {
+	font-family: Bould, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+a {
+	text-underline-offset: 2px;
 }
