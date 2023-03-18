@@ -2,31 +2,23 @@
 layout: layouts/root.njk
 ---
 
-<header>
-	<h1>Tony Mottaz writes on the internet</h1>
+<h1>tonymottaz.com</h1>
 
-	<nav>
-		<ul class="link-list">
-			<li class="link-item">
-				<a href="/blog">Blog</a>
-			</li>
-			<li class="link-item">
-				<a href="/now">Now</a>
-			</li>
-			<li class="link-item">
-				<a href="/feed.xml">RSS</a>
-			</li>
-		</ul>
-	</nav>
-</header>
+<p>
+	Hi! I’m Tony. I am a front end web developer based in Minnesota. Thanks for visiting my website!
+</p>
 
-<main>
-	<p>
-			Hey there! I’m Tony.
-		</p>
-	<p>
-			I am a front end software engineer, drumline instructor, and pourover coffee enthusiast. On
-			my blog, you will mostly find technical posts about programming. Welcome to my little corner
-			of the internet.
-		</p>
-</main>
+<h2>Posts</h2>
+
+<ul class="post-list">
+	{%- for post in collections.post | reverse -%}
+		<li class="post-list-item">
+			<div class="post-layout">
+				<time class="post-date" datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | readableDate }}</time>
+				<a href="{{post.url}}">
+					<span class="post-title">{{ post.data.title }}</span>
+				</a>
+			</div>
+		</li>
+	{%- endfor -%}
+</ul>

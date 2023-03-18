@@ -3,7 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{ title or site.title }}</title>
+		{% if title %}
+			<title>{{ title }} - {{ site.title }}</title>
+		{% else %}
+			<title>{{ site.title }}</title>
+		{% endif %}
 
 		<meta name="generator" content="{{ eleventy.generator }}">
 
@@ -21,6 +25,22 @@
 		</style>
 	</head>
 	<body>
-		<div class="layout">{{ content | safe }}</div>
+		<a class="screen-reader screen-reader-focusable" href="#main">Skip to main content</a>
+
+		<nav class="site-nav" role="navigation">
+			<ul>
+				<li>
+					<a href="/">Home</a>
+				</li>
+				<li>
+					<a href="/now">Now</a>
+				</li>
+				<li>
+					<a href="/feed.xml">RSS</a>
+				</li>
+			</ul>
+		</nav>
+
+		<main id="main">{{ content | safe }}</main>
 	</body>
 </html>

@@ -1,6 +1,6 @@
 ---
-layout: layouts/now.njk
-title: Now - Tony Mottaz
+title: Now
+layout: layouts/post.njk
 ---
 
 ## What I am up to now

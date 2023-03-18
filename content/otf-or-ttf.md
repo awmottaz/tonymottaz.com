@@ -1,6 +1,9 @@
 ---
-title: OTF or TTF
+title: OTF or TTF?
 date: 2023-02-15
+layout: layouts/post.njk
+tags:
+	- post
 ---
 
 OTF. You want OTF.
