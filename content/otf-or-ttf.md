@@ -1,13 +1,17 @@
 ---
 title: OTF or TTF?
-date: 2023-02-15
+date: 2023-03-18
 layout: layouts/post.njk
 tags:
 	- post
 ---
 
-OTF. You want OTF.
+Use OTF font files if you have them. Otherwise, TTF is fine.
 
-I occasionally find myself choosing between OTF font files or TTF, and I can never remember which one I want, which one is more modern. So this post is my reminder.
+"OTF" stands for "OpenType Font". It is a more modern format than TTF ("TrueType Font").
 
-OTF, which stands for "OpenType Font", has those _oh-so-nice_ OpenType features that you'd like to use.
+OTF fonts usually provide additional controls for typographic features, such as ligatures and contextual alternates. On the web, you can enable or disable those features using the [`font-feature-settings` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings).
+
+---
+
+I wrote this post after the umpteenth time that I downloaded font files and forgot which format I wanted to use. Hopefully, I never forget again! At the very least, I know where to find this information again — I hope it helps you, too!
