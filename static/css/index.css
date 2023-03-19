@@ -114,6 +114,10 @@ a.to-top:visited {
 	color: var(--color-link-lch);
 }
 
+hr {
+	border-color: var(--color-border);
+}
+
 .site-nav > ul {
 	margin: 0;
 	padding: 0;
@@ -125,7 +129,7 @@ a.to-top:visited {
 .site-footer {
 	margin-top: 3rem;
 	padding-block: 1rem;
-	border-top: 2px dashed;
+	border-top: 2px dotted;
 	border-color: var(--color-border);
 	border-color: var(--color-border-lch);
 }
