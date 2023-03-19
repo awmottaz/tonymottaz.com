@@ -67,6 +67,9 @@ The snippet below is copied from that article.
 
 	--color-link-visited-lch: lch(78% 60 109);
 	--color-link-visited: rgb(71.31% 79.22% 31.22%);
+
+	--color-border-lch: lch(50% 4 289);
+	--color-border: rgb(46.63% 46.41% 49.16%);
 }
 
 body {
@@ -75,6 +78,8 @@ body {
 	text-rendering: optimizeLegibility;
 	line-height: 1.4;
 	padding: 1rem;
+	max-width: 56ch;
+	margin-inline: auto;
 
 	background-color: var(--color-page-background);
 	background-color: var(--color-page-background-lch);
@@ -98,10 +103,15 @@ h4 {
 a {
 	color: var(--color-link);
 	color: var(--color-link-lch);
+	text-underline-offset: 2px;
 }
 a:visited {
 	color: var(--color-link-visited);
 	color: var(--color-link-visited-lch);
+}
+a.to-top:visited {
+	color: var(--color-link);
+	color: var(--color-link-lch);
 }
 
 .site-nav > ul {
@@ -110,6 +120,14 @@ a:visited {
 	list-style: none;
 	display: flex;
 	gap: 32px;
+}
+
+.site-footer {
+	margin-top: 3rem;
+	padding-block: 1rem;
+	border-top: 2px dashed;
+	border-color: var(--color-border);
+	border-color: var(--color-border-lch);
 }
 
 .post-list {
@@ -131,8 +149,4 @@ a:visited {
 .post-date {
 	font-size: 0.9rem;
 	font-family: var(--font-family-mono);
-}
-
-.post-page-layout {
-	max-width: 58ch;
 }
