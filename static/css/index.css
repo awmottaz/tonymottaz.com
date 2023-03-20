@@ -87,6 +87,10 @@ body {
 	color: var(--color-text-lch);
 }
 
+:is(h1, h2, h3, h4, h5, h6) {
+	margin-top: 2.5em;
+	margin-bottom: 1rem;
+}
 h1 {
 	font-size: 1.4rem;
 }
@@ -110,6 +114,10 @@ a:visited {
 	color: var(--color-link-visited-lch);
 }
 a.to-top:visited {
+	color: var(--color-link);
+	color: var(--color-link-lch);
+}
+.site-nav a:visited {
 	color: var(--color-link);
 	color: var(--color-link-lch);
 }
