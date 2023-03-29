@@ -4,7 +4,8 @@
 	"private": true,
 	"scripts": {
 		"build": "npx @11ty/eleventy",
-		"start": "npx @11ty/eleventy --serve --quiet"
+		"start": "npx @11ty/eleventy --serve --quiet",
+		"new-post": "plop post"
 	},
 	"author": "Tony Mottaz <mail@tonymottaz.com>",
 	"license": "SEE LICENSE IN LICENSE.txt",
@@ -16,6 +17,8 @@
 		"@11ty/eleventy-plugin-syntaxhighlight": "4.2.0",
 		"html-minifier": "4.0.0",
 		"luxon": "3.3.0",
-		"prettier": "2.8.7"
+		"plop": "3.1.2",
+		"prettier": "2.8.7",
+		"slugify": "1.6.6"
 	}
 }
