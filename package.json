@@ -9,13 +9,13 @@
 	"author": "Tony Mottaz <mail@tonymottaz.com>",
 	"license": "SEE LICENSE IN LICENSE.txt",
 	"devDependencies": {
-		"@11ty/eleventy": "2.0.0",
+		"@11ty/eleventy": "2.0.1",
 		"@11ty/eleventy-img": "3.0.0",
 		"@11ty/eleventy-plugin-bundle": "1.0.4",
 		"@11ty/eleventy-plugin-rss": "1.2.0",
 		"@11ty/eleventy-plugin-syntaxhighlight": "4.2.0",
 		"html-minifier": "4.0.0",
 		"luxon": "3.3.0",
-		"prettier": "2.8.5"
+		"prettier": "2.8.7"
 	}
 }
