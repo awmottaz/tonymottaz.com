@@ -58,6 +58,7 @@ The snippet below is copied from that article.
 
 	--color-page-background: #eee;
 	--color-text: #111;
+	--color-codeBackgroundInline: #e0e0e0;
 	--color-border: #777;
 }
 
@@ -100,6 +101,17 @@ hr {
 	border-bottom: none;
 }
 
+code {
+	font-family: var(--font-family-mono);
+}
+
+code:not(pre > code):not(h1 code):not(h2 code):not(h3 code):not(h4 code) {
+	background-color: var(--color-codeBackgroundInline);
+	padding: 0.125em 0.25em;
+	border-radius: 0.25em;
+	font-size: 0.9rem;
+}
+
 .site-nav > ul {
 	margin: 0;
 	padding: 0;
@@ -134,4 +146,36 @@ hr {
 .post-date {
 	font-size: 0.9rem;
 	font-family: var(--font-family-mono);
+}
+
+.remark-code-container {
+	margin-block: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.remark-code-container > .remark-code-title {
+	border: 1px solid var(--color-border);
+	border-top-width: 4px;
+	padding: 4px;
+	align-self: start;
+	position: relative;
+	font-size: 0.9rem;
+}
+.remark-code-container > .remark-code-title::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: calc(100% - 1px);
+	bottom: -3px;
+	background-color: var(--color-page-background);
+}
+
+.remark-code-container pre {
+	border: 1px solid var(--color-border);
+	padding: 4px;
+	margin: 0;
+	font-size: 0.9rem;
+	tab-size: 4;
 }
