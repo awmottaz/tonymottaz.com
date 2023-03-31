@@ -38,6 +38,29 @@ module.exports = function (eleventyConfig) {
 		});
 	});
 
+	eleventyConfig.setLibrary("md", {
+		set: () => {},
+		render: async (str) => {
+			const { unified } = await import("unified");
+			const { default: remarkParse } = await import("remark-parse");
+			const { default: remarkFlexibleCodeTitles } = await import(
+				"remark-flexible-code-titles"
+			);
+			const { default: remarkRehype } = await import("remark-rehype");
+			const { default: rehypeStringify } = await import(
+				"rehype-stringify"
+			);
+
+			const processor = unified()
+				.use(remarkParse)
+				.use(remarkFlexibleCodeTitles)
+				.use(remarkRehype)
+				.use(rehypeStringify);
+
+			return (await processor.process(str)).value;
+		},
+	});
+
 	return {
 		templateFormats: ["html", "md", "njk"],
 		markdownTemplateEngine: "njk",

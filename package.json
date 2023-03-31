@@ -19,6 +19,11 @@
 		"luxon": "3.3.0",
 		"plop": "3.1.2",
 		"prettier": "2.8.7",
-		"slugify": "1.6.6"
+		"rehype-stringify": "9.0.3",
+		"remark-flexible-code-titles": "1.1.2",
+		"remark-parse": "10.0.1",
+		"remark-rehype": "10.1.0",
+		"slugify": "1.6.6",
+		"unified": "10.1.2"
 	}
 }
