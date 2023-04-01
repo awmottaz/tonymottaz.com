@@ -50,10 +50,22 @@ module.exports = function (eleventyConfig) {
 			const { default: rehypeStringify } = await import(
 				"rehype-stringify"
 			);
+			const { default: remarkTorchlight } = await import(
+				"remark-torchlight"
+			);
 
 			const processor = unified()
 				.use(remarkParse)
 				.use(remarkFlexibleCodeTitles)
+				.use(remarkTorchlight, {
+					config: {
+						theme: "liver-dark",
+						cache: ".torchlight-cache",
+						options: {
+							lineNumbers: false,
+						},
+					},
+				})
 				.use(remarkRehype)
 				.use(rehypeStringify);
 

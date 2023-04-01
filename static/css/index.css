@@ -60,6 +60,14 @@ The snippet below is copied from that article.
 	--color-text: #111;
 	--color-codeBackgroundInline: #e0e0e0;
 	--color-border: #777;
+	/* Sync this with torchlight theme background */
+	--color-codeBlockBackground: #1e1e1e;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
 body {
@@ -68,7 +76,7 @@ body {
 	text-rendering: optimizeLegibility;
 	line-height: 1.4;
 	padding: 1rem;
-	max-width: 56ch;
+	max-width: 60ch;
 	margin-inline: auto;
 
 	background-color: var(--color-page-background);
@@ -97,8 +105,12 @@ a {
 }
 
 hr {
-	border-color: var(--color-border);
-	border-bottom: none;
+	border: none;
+	text-align: center;
+	margin-block: 2rem;
+}
+hr::after {
+	content: "* * *";
 }
 
 code {
@@ -155,27 +167,18 @@ code:not(pre > code):not(h1 code):not(h2 code):not(h3 code):not(h4 code) {
 }
 
 .remark-code-container > .remark-code-title {
-	border: 1px solid var(--color-border);
-	border-top-width: 4px;
+	border: 2px solid var(--color-codeBlockBackground);
+	background-color: var(--color-codeBackgroundInline);
 	padding: 4px;
 	align-self: start;
-	position: relative;
 	font-size: 0.9rem;
-}
-.remark-code-container > .remark-code-title::after {
-	content: "";
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: calc(100% - 1px);
-	bottom: -3px;
-	background-color: var(--color-page-background);
+	transform: translateY(2px);
 }
 
 .remark-code-container pre {
-	border: 1px solid var(--color-border);
 	padding: 4px;
 	margin: 0;
 	font-size: 0.9rem;
 	tab-size: 4;
+	overflow-x: auto;
 }
