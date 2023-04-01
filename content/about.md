@@ -10,9 +10,9 @@ will find it interesting, too.
 
 ## How this site is built
 
-I use [11ty](https://www.11ty.dev/) to write and build this website. It is deployed to [Netlify](https://app.netlify.com/). The source code can be found in [the Sourcehut repo](https://git.sr.ht/~tonymottaz/tonymottaz.com).
+I use [11ty](https://www.11ty.dev/) to write and build this website. It is deployed to [Vercel](https://vercel.com/). The source code can be found in [this GitHub repository](https://github.com/awmottaz/tonymottaz.com).
 
-This website has zero tracking, analytics, cookies, page counting, logging, or analytics of any kind implemented by me. [Netlify Analytics](https://docs.netlify.com/monitor-sites/analytics/) are not enabled. I don't want to know anything about you.
+This website has no tracking, analytics, cookies, or page view counting. Vercel provides me with [runtime server logs](https://vercel.com/docs/concepts/observability/runtime-logs). As far as I can tell, there is no identifying information available in those logs, and I can only see the most recent hour of logs. I almost never look at them anyway — I don't want to know anything about you.
 
 ## Site accessibility
 
