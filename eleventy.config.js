@@ -21,9 +21,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	eleventyConfig.addFilter("readableDate", (dateObj) => {
-		return new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(
-			dateObj
-		);
+		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toLocaleString(DateTime.DATE_FULL)
 	});
 
 	eleventyConfig.addTransform("htmlmin", function (content) {
@@ -42,22 +40,12 @@ module.exports = function (eleventyConfig) {
 		set: () => {},
 		render: async (str) => {
 			const { unified } = await import("unified");
-			const { default: remarkParse } = await import("remark-parse");
-			const { default: remarkFlexibleCodeTitles } = await import(
-				"remark-flexible-code-titles"
-			);
-			const { default: remarkRehype } = await import("remark-rehype");
-			const { default: rehypeStringify } = await import(
-				"rehype-stringify"
-			);
-			const { default: remarkTorchlight } = await import(
-				"remark-torchlight"
-			);
 
 			const processor = unified()
-				.use(remarkParse)
-				.use(remarkFlexibleCodeTitles)
-				.use(remarkTorchlight, {
+				.use((await import("remark-parse")).default)
+				.use((await import("remark-flexible-code-titles")).default)
+				.use((await import('remark-smartypants')).default)
+				.use((await import("remark-torchlight")).default, {
 					config: {
 						theme: "liver-dark",
 						cache: ".torchlight-cache",
@@ -66,8 +54,8 @@ module.exports = function (eleventyConfig) {
 						},
 					},
 				})
-				.use(remarkRehype)
-				.use(rehypeStringify);
+				.use((await import("remark-rehype")).default)
+				.use((await import("rehype-stringify")).default);
 
 			return (await processor.process(str)).value;
 		},

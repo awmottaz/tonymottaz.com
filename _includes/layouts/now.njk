@@ -6,7 +6,7 @@ layout: layouts/root.njk
 	<header>
 		<h1>{{ title }}</h1>
 		{% if date %}
-			<time datetime="{{ date | htmlDateString}}">{{date | readableDate}}</time>
+			<time datetime="{{ date | htmlDateString}}">Last updated: {{date | readableDate}}</time>
 		{% endif %}
 	</header>
 	{{ content | safe }}

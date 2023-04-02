@@ -74,7 +74,7 @@ body {
 	font-family: var(--font-family-main);
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
-	line-height: 1.4;
+	line-height: 1.6;
 	padding: 1rem;
 	max-width: 60ch;
 	margin-inline: auto;
@@ -98,6 +98,10 @@ h3 {
 }
 h4 {
 	font-size: 1rem;
+}
+
+header time {
+	font-size: 0.9rem;
 }
 
 a {
@@ -146,13 +150,12 @@ code:not(pre > code):not(h1 code):not(h2 code):not(h3 code):not(h4 code) {
 
 	display: flex;
 	flex-direction: column;
-	gap: 32px;
+	gap: 40px;
 }
 
 .post-layout {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
 }
 
 .post-date {
