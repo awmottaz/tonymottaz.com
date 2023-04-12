@@ -52,9 +52,10 @@ The snippet below is copied from that article.
 		"Nimbus Sans", Arial, sans-serif;
 	--font-family-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
 		Consolas, "DejaVu Sans Mono", monospace;
+	--font-family-caption: Bahnschrift, "DIN Alternate",
+		"Franklin Gothic Medium", "Nimbus Sans Narrow", sans-serif-condensed,
+		sans-serif;
 	--content-width: 66ch;
-
-	/* https://css.land/lch/ */
 
 	--color-page-background: #eee;
 	--color-text: #111;
@@ -115,6 +116,16 @@ hr {
 }
 hr::after {
 	content: "* * *";
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+figcaption {
+	font-family: var(--font-family-caption);
+	line-height: 1.2;
 }
 
 code {
