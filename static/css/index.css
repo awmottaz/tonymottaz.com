@@ -176,6 +176,10 @@ code:not(pre > code):not(h1 code):not(h2 code):not(h3 code):not(h4 code) {
 	flex-direction: column;
 }
 
+.post-title {
+	line-height: 1.2;
+}
+
 .post-date {
 	font-size: 0.9rem;
 }

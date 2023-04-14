@@ -4,7 +4,7 @@ layout: layouts/root.njk
 
 <div class="post-page-layout">
 	<header>
-		<h1>{{ title }}</h1>
+		<h1 class="post-title">{{ title }}</h1>
 		{% if date %}
 			<time datetime="{{ date | htmlDateString}}">{{date | readableDate}}</time>
 		{% endif %}
