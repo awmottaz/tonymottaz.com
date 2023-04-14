@@ -1,5 +1,5 @@
 ---
-title: Handling multiple versions in Yarn resolutions
+title: "Multiple versions of the same dependency in Yarn resolutions"
 date: 2023-04-01
 layout: layouts/post.njk
 tags:
@@ -30,11 +30,13 @@ I was working with [Yarn 2 workspaces][] monorepo recently, and I needed to inst
 
 ## Dealing with resolutions
 
-For _"reasons"_, we needed to set [resolution rules][] for React to ensure that we were installing the correct version.
+For _reasons_, we needed to set [resolution rules][] for React to ensure that we were installing the correct version.
 
 [resolution rules]: https://yarnpkg.com/configuration/manifest/#resolutions
 
-Here's the rub: Yarn only allows you specify resolutions in the root workspace, and we needed separate resolution rules for each of the major versions of React that we are using. To achieve that, you need to use the following syntax:
+Here's the rub: Yarn only allows you specify resolutions in the root workspace, and we needed separate resolution rules for each of the major versions of React that we are using.
+
+To do that, you need to use the following syntax:
 
 ```json
 {
@@ -67,6 +69,6 @@ Then you can write a resolution rule like this:
 
 ## A note about "yarn set resolution"
 
-The [`yarn set resolution`][yarn set resolution] command can be used to update the installed version of your dependency, and it will update your `yarn.lock` file. However, be warned that the `-s, --save` flag for this command _is not implemented yet_ (at the time of writing). So if you are like me and wondering why your root `package.json` is not being updated by this command, that is why!
+The [`yarn set resolution`][yarn set resolution] command can be used to update the installed version of your dependency, and it will update your `yarn.lock` file. However, be warned that the `-s, --save` flag for this command _is not implemented yet_ at the time of writing. So if you are like me and wondering why your root `package.json` is not being updated by this command, that is why!
 
 [yarn set resolution]: https://yarnpkg.com/cli/set/resolution
