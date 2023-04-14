@@ -88,6 +88,9 @@ body {
 	margin-top: 2.5em;
 	margin-bottom: 1rem;
 }
+:is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
+	margin-top: 1.25rem;
+}
 h1 {
 	font-size: 1.4rem;
 }
@@ -126,6 +129,10 @@ img {
 figcaption {
 	font-family: var(--font-family-caption);
 	line-height: 1.2;
+}
+
+time {
+	font-family: var(--font-family-caption);
 }
 
 code {
@@ -171,7 +178,6 @@ code:not(pre > code):not(h1 code):not(h2 code):not(h3 code):not(h4 code) {
 
 .post-date {
 	font-size: 0.9rem;
-	font-family: var(--font-family-mono);
 }
 
 .remark-code-container {
