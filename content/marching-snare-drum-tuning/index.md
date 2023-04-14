@@ -1,6 +1,6 @@
 ---
-title: Marching snare drums that sound good
-date: 2023-04-12
+title: How to tune a marching snare drum
+date: 2023-04-13
 layout: layouts/post.njk
 tags:
 	- post
@@ -8,7 +8,7 @@ tags:
 
 I have tuned a lot of marching snare drums over the years. I think I have found a system for tuning them that is practical and sounds great. This post describes that system.
 
-There are a lot of opinions about tuning, and even about what sounds good. This system works for me and achieves a sound that I prefer. I do not claim that this is the "best way" or the "best sound". Your mileage may vary.
+Disclaimer: This system works for _me_ and achieves a sound that _I prefer_. I do not claim that this is the "best way" or the "best sound". Your mileage may vary.
 
 ## General principles
 
@@ -74,7 +74,7 @@ Another thing to look out for — the hardware that holds the snares can someti
 
 ### Adjust the tension on the snares
 
-To find the perfect tension on the snares, set the drum up with the top head up. Loosen the snares way too loose so that you don't even get a snare response. While hitting the center of the top head (softly), slowly tighten the snares. Listen closely to how the snare response changes. In general, you will go through the following phases:
+To find the perfect tension on the snares, set the drum up with the top head up. Loosen the snares way too loose so that you don't even get a snare response. While hitting the center of the top head softly, slowly tighten the snares. Listen closely to how the snare response changes. In general, you will go through the following phases:
 
 1. No snare response
 2. "Wet" and "rattly"
