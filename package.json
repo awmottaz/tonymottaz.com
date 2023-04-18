@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"build": "npx @11ty/eleventy",
+		"serve": "npx serve _site",
 		"start": "npx @11ty/eleventy --serve --quiet",
 		"new-post": "plop post"
 	},
@@ -24,6 +25,7 @@
 		"remark-rehype": "10.1.0",
 		"remark-smartypants": "2.0.0",
 		"remark-torchlight": "0.0.5",
+		"serve": "14.2.0",
 		"slugify": "1.6.6",
 		"unified": "10.1.2"
 	}
