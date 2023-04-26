@@ -1,18 +1,26 @@
-:root {
-	font-size: 1.2rem;
-}
-
 *,
 *::before,
 *::after {
 	box-sizing: border-box;
 }
 
-body {
+html {
+	font-size: 1.2rem;
+	font-kerning: normal;
 	font-family: var(--font-family-main);
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 	line-height: 1.6;
+	word-break: break-word;
+}
+
+@supports (hanging-punctuation: first) {
+	html {
+		hanging-punctuation: first;
+	}
+}
+
+body {
 	padding: 1rem;
 	max-width: 60ch;
 	margin-inline: auto;
