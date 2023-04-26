@@ -1,0 +1,19 @@
+:root {
+	--font-family-main: Inter, Roboto, "Helvetica Neue", "Arial Nova",
+		"Nimbus Sans", Arial, sans-serif;
+	--font-family-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+		Consolas, "DejaVu Sans Mono", monospace;
+	--font-family-caption: Bahnschrift, "DIN Alternate",
+		"Franklin Gothic Medium", "Nimbus Sans Narrow", sans-serif-condensed,
+		sans-serif;
+	--content-width: 66ch;
+
+	--color-page-background: #eee;
+	--color-text: #111;
+	--color-codeBackgroundInline: #e0e0e0;
+	--color-border: #777;
+	/* Sync this with torchlight theme background */
+	--color-codeBlockBackground: #1e1e1e;
+
+	--radius-md: 8px;
+}

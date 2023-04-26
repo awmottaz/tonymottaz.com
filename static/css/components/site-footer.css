@@ -1,0 +1,6 @@
+.site-footer {
+	margin-top: 3rem;
+	padding-block: 1rem;
+	border-top: 2px dotted;
+	border-color: var(--color-border);
+}

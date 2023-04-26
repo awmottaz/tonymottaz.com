@@ -1,0 +1,22 @@
+.remark-code-container {
+	margin-block: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.remark-code-container > .remark-code-title {
+	border: 2px solid var(--color-codeBlockBackground);
+	background-color: var(--color-codeBackgroundInline);
+	padding: 4px;
+	align-self: start;
+	font-size: 0.9rem;
+	transform: translateY(2px);
+}
+
+.remark-code-container pre {
+	padding: 4px;
+	margin: 0;
+	font-size: 0.9rem;
+	tab-size: 4;
+	overflow-x: auto;
+}
