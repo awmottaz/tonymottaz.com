@@ -1,6 +1,7 @@
 ---
 layout: layouts/post.njk
 title: About this website
+description: About tonymottaz.com
 ---
 
 Hi! I'm Tony. I am a front end web developer based in Minnesota.

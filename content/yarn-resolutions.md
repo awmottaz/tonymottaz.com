@@ -1,5 +1,6 @@
 ---
 title: "Multiple versions of the same dependency in Yarn resolutions"
+description: In this blog post, I explain how to set Yarn resolution rules in a Yarn workspaces monorepo when different workspaces need different versions of the same dependency.
 date: 2023-04-01
 layout: layouts/post.njk
 tags:

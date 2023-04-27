@@ -1,5 +1,6 @@
 ---
 title: How to tune a marching snare drum
+description: In this blog post, I talk through my process for tuning marching snare drums.
 date: 2023-04-13
 layout: layouts/post.njk
 tags:

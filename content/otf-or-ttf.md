@@ -1,5 +1,6 @@
 ---
 title: OTF or TTF?
+description: Should you use OTF or TTF font files?
 date: 2023-03-18
 layout: layouts/post.njk
 tags:
