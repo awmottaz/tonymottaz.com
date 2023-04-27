@@ -7,3 +7,20 @@
 	flex-direction: column;
 	gap: 40px;
 }
+
+.post-list__item-layout {
+	display: flex;
+	flex-direction: column;
+}
+
+.post-list__timestamp {
+	font-size: 0.9rem;
+}
+
+.post-list__link {
+	text-indent: 1rem;
+}
+
+.post-link__title {
+	line-height: 1.2;
+}

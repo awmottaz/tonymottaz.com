@@ -1,0 +1,14 @@
+.post-header {
+	margin-block: 3rem;
+}
+
+.post-header__title {
+	font-size: 1.8rem;
+	line-height: 1;
+	margin: 0;
+}
+
+.post-header__timestamp {
+	font-size: 0.9rem;
+	font-style: italic;
+}

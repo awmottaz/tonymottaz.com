@@ -7,11 +7,11 @@ description: The home page of tonymottaz.com
 
 <ul class="post-list">
 	{%- for post in collections.post | reverse -%}
-		<li class="post-list-item">
-			<div class="post-layout">
-				<time class="post-date" datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | readableDate }}</time>
-				<a href="{{post.url}}">
-					<span class="post-title">{{ post.data.title }}</span>
+		<li>
+			<div class="post-list__item-layout">
+				<time class="post-list__timestamp" datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | readableDate }}</time>
+				<a class="post-list__link" href="{{post.url}}">
+					<span class="post-list__title">{{ post.data.title }}</span>
 				</a>
 			</div>
 		</li>
