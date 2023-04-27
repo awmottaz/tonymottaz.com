@@ -92,7 +92,6 @@ aside {
 aside > h3 {
 	font-size: 1.4em;
 	font-variant: all-small-caps;
-	letter-spacing: 0.02em;
 	margin: 0;
 }
 aside > *:first-child {

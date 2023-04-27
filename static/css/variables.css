@@ -1,9 +1,9 @@
 :root {
-	--font-family-main: Inter, Roboto, "Helvetica Neue", "Arial Nova",
+	--font-family-main: Overpass, Inter, Roboto, "Helvetica Neue", "Arial Nova",
 		"Nimbus Sans", Arial, sans-serif;
-	--font-family-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
-		Consolas, "DejaVu Sans Mono", monospace;
-	--font-family-caption: Bahnschrift, "DIN Alternate",
+	--font-family-mono: "Overpass Mono", ui-monospace, "Cascadia Code",
+		"Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+	--font-family-caption: Overpass, Bahnschrift, "DIN Alternate",
 		"Franklin Gothic Medium", "Nimbus Sans Narrow", sans-serif-condensed,
 		sans-serif;
 	--content-width: 66ch;
