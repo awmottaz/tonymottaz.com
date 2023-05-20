@@ -99,6 +99,11 @@ aside > *:last-child {
 
 code {
 	font-family: var(--font-family-mono);
+	/*
+	 * Disable coding ligatures. They reduce clarity of which characters were actually typed, and
+	 * Overpass Mono has a bug where the "fi" ligature takes up one character width. _Blech_
+	 */
+	font-feature-settings: "liga" off;
 }
 
 code:not(pre > code):not(h1 code):not(h2 code):not(h3 code):not(h4 code) {
