@@ -11,6 +11,7 @@
 	align-self: start;
 	font-size: 0.9rem;
 	transform: translateY(2px);
+	font-family: var(--font-family-caption);
 }
 
 .remark-code-container pre {

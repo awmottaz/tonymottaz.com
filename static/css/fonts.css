@@ -50,3 +50,128 @@
 		url("/font/OverpassMono-SemiBold.woff2") format("woff2");
 	font-display: swap;
 }
+
+@font-face {
+	font-family: Bitter;
+	font-style: normal;
+	font-weight: 400;
+	src: local("Bitter"), local("Bitter-Regular"),
+		url("/font/Bitter-Regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: Bitter;
+	font-style: italic;
+	font-weight: 400;
+	src: local("Bitter Italic"), local("Bitter-Italic"),
+		url("/font/Bitter-Italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: Bitter;
+	font-style: normal;
+	font-weight: 700;
+	src: local("Bitter Bold"), local("Bitter-Bold"),
+		url("/font/Bitter-Bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: Bitter;
+	font-style: italic;
+	font-weight: 700;
+	src: local("Bitter BoldItalic"), local("Bitter-BoldItalic"),
+		url("/font/Bitter-BoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: Bitter;
+	font-style: normal;
+	font-weight: 900;
+	src: local("Bitter Black"), local("Bitter-Black"),
+		url("/font/Bitter-Black.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: Brutalist Mono;
+	font-style: normal;
+	font-weight: 400;
+	src: local("Brutalist Mono"),
+		local("BrutalistMono") url("/font/BrutalistMono.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: Brutalist Mono;
+	font-style: italic;
+	font-weight: 400;
+	src: local("Brutalist Mono Oblique"),
+		local("BrutalistMono-Oblique") url("/font/BrutalistMono-Oblique.woff2")
+			format("woff2");
+}
+
+@font-face {
+	font-family: Brutalist Mono;
+	font-style: oblique;
+	font-weight: 400;
+	src: local("Brutalist Mono Oblique"),
+		local("BrutalistMono-Oblique") url("/font/BrutalistMono-Oblique.woff2")
+			format("woff2");
+}
+
+@font-face {
+	font-family: Brutalist Mono;
+	font-style: normal;
+	font-weight: 600;
+	src: local("Brutalist Mono Bold"),
+		local("BrutalistMono-Bold") url("/font/BrutalistMono-Bold.woff2")
+			format("woff2");
+}
+
+@font-face {
+	font-family: Brutalist Mono;
+	font-style: italic;
+	font-weight: 400;
+	src: local("Brutalist Mono BoldOblique"),
+		local("BrutalistMono-BoldOblique")
+			url("/font/BrutalistMono-BoldOblique.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: Brutalist Mono;
+	font-style: oblique;
+	font-weight: 400;
+	src: local("Brutalist Mono BoldOblique"),
+		local("BrutalistMono-BoldOblique")
+			url("/font/BrutalistMono-BoldOblique.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: Work Sans;
+	font-style: normal;
+	font-weight: 400;
+	src: local("Work Sans"), local("WorkSans-Regular"),
+		url("/font/WorkSans-Regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: Work Sans;
+	font-style: italic;
+	font-weight: 400;
+	src: local("Work Sans Italic"), local("WorkSans-Italic"),
+		url("/font/WorkSans-Italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: Work Sans;
+	font-style: normal;
+	font-weight: 700;
+	src: local("Work Sans Bold"), local("WorkSans-Bold"),
+		url("/font/WorkSans-Bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: Work Sans;
+	font-style: italic;
+	font-weight: 700;
+	src: local("Work Sans BoldItalic"), local("WorkSans-BoldItalic"),
+		url("/font/WorkSans-BoldItalic.woff2") format("woff2");
+}

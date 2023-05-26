@@ -4,11 +4,14 @@
 
 .post-header__title {
 	font-size: 1.8rem;
+	font-weight: 900;
 	line-height: 1;
 	margin: 0;
 }
 
 .post-header__timestamp {
+	display: block;
+	margin-top: 16px;
 	font-size: 0.9rem;
 	font-style: italic;
 }
