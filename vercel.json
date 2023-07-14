@@ -1,3 +1,42 @@
 {
-	"cleanUrls": true
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; font-src 'self'; img-src 'self' data:; manifest-src 'self'; media-src 'self'; object-src 'self'; style-src 'self'; base-uri 'self'"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://www.tonymottaz.com"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-site"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "autoplay=(), camera=(), display-capture=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), identity-credentials-get=(), microphone=(), payment=(), publickey-credentials-create=(), publickey-credentials-get=(), storage-access=()"
+        },
+        {
+          "key": "Server",
+          "value": "webserver"
+        }
+      ]
+    }
+  ]
 }
