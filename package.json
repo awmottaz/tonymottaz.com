@@ -6,11 +6,14 @@
 		"build": "npx @11ty/eleventy",
 		"serve": "npx serve _site",
 		"start": "npx @11ty/eleventy --serve --quiet",
-		"new-post": "plop post",
 		"favicon": "real-favicon generate faviconDescription.json faviconData.json .favicon",
 		"favicon-update": "real-favicon check-for-update --fail-on-update faviconData.json"
 	},
-	"author": "Tony Mottaz <mail@tonymottaz.com>",
+	"author": {
+		"name": "Tony Mottaz",
+		"email": "mail@tonymottaz.com",
+		"url": "https://www.tonymottaz.com"
+	},
 	"license": "SEE LICENSE IN LICENSE.txt",
 	"devDependencies": {
 		"@11ty/eleventy": "2.0.1",
@@ -19,10 +22,8 @@
 		"@11ty/eleventy-plugin-rss": "1.2.0",
 		"browserslist": "4.21.9",
 		"cli-real-favicon": "0.0.8",
-		"html-minifier": "4.0.0",
 		"lightningcss": "1.21.5",
 		"luxon": "3.3.0",
-		"plop": "3.1.2",
 		"prettier": "3.0.0",
 		"rehype-stringify": "9.0.3",
 		"remark-flexible-code-titles": "1.1.3",

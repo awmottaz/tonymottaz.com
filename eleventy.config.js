@@ -1,10 +1,14 @@
 const { DateTime } = require("luxon");
-const htmlmin = require("html-minifier");
+const prettier = require("prettier");
+const path = require("node:path");
+
 const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+
 const pluginMarkdown = require("./11ty-plugins/markdown.js");
 const pluginSass = require("./11ty-plugins/sass.js");
 
+/** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
 		"./static/": "/",
@@ -30,16 +34,20 @@ module.exports = function (eleventyConfig) {
 		);
 	});
 
-	eleventyConfig.addTransform("htmlmin", function (content) {
-		if (!this.page.outputPath?.endsWith(".html")) {
+	eleventyConfig.addTransform("pretty", async function (content) {
+		const parsedPath = path.parse(this.page.outputPath);
+		const { languages } = await prettier.getSupportInfo();
+		const lang = languages.find(({ extensions }) =>
+			extensions?.some((ext) => ext === parsedPath.ext),
+		);
+		if (!lang) {
+			// prettier cannot format this file.
 			return content;
 		}
-
-		return htmlmin.minify(content, {
-			useShortDoctype: true,
-			removeComments: true,
-			collapseWhitespace: true,
+		const formatted = await prettier.format(content, {
+			filepath: this.page.outputPath,
 		});
+		return formatted;
 	});
 
 	return {

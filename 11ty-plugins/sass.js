@@ -5,6 +5,7 @@ const lightningcss = require("lightningcss");
 
 const targets = lightningcss.browserslistToTargets(browserslist("defaults"));
 
+/** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
 	eleventyConfig.addTemplateFormats("scss");
 
@@ -23,12 +24,12 @@ module.exports = function (eleventyConfig) {
 			const { code } = lightningcss.transform({
 				filename: inputPath,
 				code: Buffer.from(css, "utf-8"),
-				minify: true,
 				sourceMap: false,
+				minify: true,
 				targets,
 			});
 
-			return () => code;
+			return () => code.toString("utf-8");
 		},
 	});
 };
