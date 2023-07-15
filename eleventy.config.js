@@ -49,7 +49,7 @@ module.exports = function (eleventyConfig) {
   });
 
   return {
-    templateFormats: ["html", "md", "njk"],
+    templateFormats: ["html", "md", "njk", "liquid"],
     markdownTemplateEngine: "njk",
     dir: {
       input: "content",
