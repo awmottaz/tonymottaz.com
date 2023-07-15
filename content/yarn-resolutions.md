@@ -41,10 +41,10 @@ To do that, you need to use the following syntax:
 
 ```json
 {
-	"resolutions": {
-		"react@^17.0.0": "17.0.2",
-		"react@^18.0.0": "18.2.0"
-	}
+  "resolutions": {
+    "react@^17.0.0": "17.0.2",
+    "react@^18.0.0": "18.2.0"
+  }
 }
 ```
 
@@ -52,9 +52,9 @@ In general, if your dependency is listed in `dependencies` or `devDependencies` 
 
 ```json
 {
-	"dependencies": {
-		"<name>": "<range>"
-	}
+  "dependencies": {
+    "<name>": "<range>"
+  }
 }
 ```
 
@@ -62,9 +62,9 @@ Then you can write a resolution rule like this:
 
 ```json
 {
-	"resolutions": {
-		"<name>@<range>": "<resolve-range>"
-	}
+  "resolutions": {
+    "<name>@<range>": "<resolve-range>"
+  }
 }
 ```
 
