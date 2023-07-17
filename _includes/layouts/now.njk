@@ -1,13 +1,15 @@
 ---
-layout: layouts/root.njk
+layout: layouts/root.liquid
 ---
 
 <div class="post-page-layout">
-	<header>
-		<h1>{{ title }}</h1>
-		{% if date %}
-			<time datetime="{{ date | htmlDateString}}">Last updated: {{date | readableDate}}</time>
-		{% endif %}
-	</header>
-	{{ content | safe }}
+  <header>
+    <h1>{{ title }}</h1>
+    {% if date %}
+    <time datetime="{{ date | htmlDateString }}"
+      >Last updated: {{ date | readableDate }}</time
+    >
+    {% endif %}
+  </header>
+  {{ content | safe }}
 </div>

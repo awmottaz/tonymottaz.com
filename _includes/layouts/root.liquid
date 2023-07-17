@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% if title %}
+  <title>{{ title }} - {{ site.title }}</title>
+  {% else %}
+  <title>{{ site.title }}</title>
+  {% endif %}
+  {% if description %}
+  <meta name="description" content="{{ description }}" />
+  {% endif %}
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f75814" />
+  <meta name="apple-mobile-web-app-title" content="tonymottaz.com" />
+  <meta name="application-name" content="tonymottaz.com" />
+  <meta name="msapplication-TileColor" content="#2b5797" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <meta name="generator" content="{{ eleventy.generator }}" />
+
+  <link rel="me" href="https://fosstodon.org/@tonymottaz" />
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for tonymottaz.com" href="/feed.xml" />
+
+  <link rel="preload" href="/font/Bitter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/font/Bitter-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/style/main.css" />
+</head>
+
+<body>
+  <a class="screen-reader screen-reader-focusable" href="#main">Skip to main content</a>
+
+  <nav class="site-nav" role="navigation">
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/now">Now</a>
+      </li>
+      <li>
+        <a href="/about">About</a>
+      </li>
+      <li>
+        <a href="/feed.xml">RSS</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    {{ content }}
+
+    <footer class="site-footer">
+      <p>
+        <small>
+          The content for this site is
+          <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>.
+          <br />
+          The
+          <a href="https://github.com/awmottaz/tonymottaz.com">code for this site</a>
+          is
+          <a href="https://github.com/awmottaz/tonymottaz.com/blob/main/LICENSE.txt">BSD-3-Clause</a>.
+        </small>
+      </p>
+    </footer>
+  </main>
+</body>
+
+</html>
