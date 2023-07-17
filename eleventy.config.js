@@ -9,7 +9,13 @@ const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 const pluginMarkdown = require("./11ty-plugins/markdown.js");
 const pluginSass = require("./11ty-plugins/sass.js");
 
-const absoluteUrl = (rel, base) => new URL(rel, base).toString();
+const absoluteUrl = (rel, base) => {
+  try {
+    return new URL(rel, base).toString();
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
@@ -28,9 +34,7 @@ module.exports = function (eleventyConfig) {
     "processHtmlForFeed",
     async (htmlContent, base) => {
       const plugin = urls({ eachURL: (url) => absoluteUrl(url.trim(), base) });
-      const { html } = await posthtml()
-        .use(plugin)
-        .process(htmlContent, { closingSingleTag: "slash" });
+      const { html } = await posthtml().use(plugin).process(htmlContent);
       return html;
     },
   );

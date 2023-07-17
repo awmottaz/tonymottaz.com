@@ -3,27 +3,32 @@ permalink: /feed.xml
 eleventyExcludeFromCollection: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ site.url }}">
-  <title>{{ site.title }}</title>
-  <subtitle>{{ site.subtitle }}</subtitle>
-  <link href="{{ permalink | absoluteUrl: site.url }}" rel="self" />
-  <link href="{{ site.url }}" />
-  <updated>{{ collections.post | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
-  <id>{{ site.url }}</id>
-  <author>
-    <name>{{ site.author.name }}</name>
-    <email>{{ site.author.email }}</email>
-  </author>
-  {%- for post in collections.post | reverse %}
-  {%- assign absolutePostUrl = post.url | absoluteUrl: site.url %}
-  <entry>
-    <title>{{ post.data.title }}</title>
-    <link href="{{ absolutePostUrl }}" />
-    <updated>{{ post.date | dateToRfc3339 }}</updated>
-    <id>{{ absolutePostUrl }}</id>
-    <content xml:lang="{{ site.language }}" type="html">
-      {{ post.templateContent | processHtmlForFeed: absolutePostUrl }}
-    </content>
-  </entry>
-  {%- endfor -%}
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title>{{ site.title }}</title>
+    <subtitle>{{ site.description }}</subtitle>
+    <link rel="self" type="application/atom+xml" href="{{ permalink | absoluteUrl: site.url }}" />
+    <link rel="alternate" type="text/html" hreflang="en" href="{{ site.url }}" />
+    <link href="{{ site.url }}" />
+    <updated>{{ collections.post | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+    <author>
+        <name>{{ site.author.name }}</name>
+    </author>
+    <id>{{ site.url }}</id>
+
+    {%- for post in collections.post | reverse %}
+    {%- assign absolutePostUrl = post.url | absoluteUrl: site.url %}
+
+    <entry>
+        <title>{{ post.data.title }}</title>
+        <link rel="alternate" type="text/html" href="{{ absolutePostUrl }}" />
+        <id>{{ absolutePostUrl }}</id>
+        <updated>{{ post.date | dateToRfc3339 }}</updated>
+        <published>{{ post.date | dateToRfc3339 }}</published>
+        <content type="html" xml:lang="{{ site.language }}" xml:base="{{ site.url }}">
+            {{ post.templateContent | processHtmlForFeed: absolutePostUrl | escape_once }}
+        </content>
+    </entry>
+
+    {%- endfor %}
 </feed>
