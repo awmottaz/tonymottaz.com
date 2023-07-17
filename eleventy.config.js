@@ -83,6 +83,8 @@ module.exports = function (eleventyConfig) {
     return formatted;
   });
 
+  eleventyConfig.setLiquidOptions({ jsTruthy: true });
+
   return {
     templateFormats: ["html", "md", "njk", "liquid"],
     markdownTemplateEngine: "njk",
