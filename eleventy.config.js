@@ -25,10 +25,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("absoluteUrl", absoluteUrl);
 
   eleventyConfig.addAsyncFilter(
-    "htmlToAbsoluteUrls",
+    "processHtmlForFeed",
     async (htmlContent, base) => {
       const plugin = urls({ eachURL: (url) => absoluteUrl(url.trim(), base) });
-      const { html } = await posthtml().use(plugin).process(htmlContent);
+      const { html } = await posthtml()
+        .use(plugin)
+        .process(htmlContent, { closingSingleTag: "slash" });
       return html;
     },
   );
