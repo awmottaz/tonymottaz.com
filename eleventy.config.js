@@ -86,8 +86,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setLiquidOptions({ jsTruthy: true });
 
   return {
-    templateFormats: ["html", "md", "njk", "liquid"],
-    markdownTemplateEngine: "njk",
+    templateFormats: ["html", "md", "liquid"],
     dir: {
       input: "content",
       includes: "../_includes",
