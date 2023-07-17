@@ -12,11 +12,9 @@ description: The home page of tonymottaz.com
       <span class="post-list__title">{{ post.data.title }}</span>
     </a>
     &mdash;
-    <time
-      class="post-list__timestamp"
-      datetime="{{ post.data.date | htmlDateString }}"
-      >{{ post.data.date | readableDate }}</time
-    >
+    <time class="post-list__timestamp" datetime="{{ post.data.date | htmlDateString }}">
+      {{ post.data.date | readableDate }}
+    </time>
   </li>
   {%- endfor -%}
 </ul>
