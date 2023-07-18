@@ -1,95 +1,36 @@
-const { DateTime } = require("luxon");
-const prettier = require("prettier");
-const path = require("node:path");
-const posthtml = require("posthtml");
-const urls = require("posthtml-urls");
-
-const pluginBundle = require("@11ty/eleventy-plugin-bundle");
-
-const pluginMarkdown = require("./11ty-plugins/markdown.js");
-const pluginSass = require("./11ty-plugins/sass.js");
-
-const absoluteUrl = (rel, base) => {
-  try {
-    return new URL(rel, base).toString();
-  } catch (error) {
-    console.error(error);
-  }
-};
+const absoluteUrl = require("./lib/absoluteUrl.js");
+const compileScss = require("./lib/compileScss.js");
+const dateToRef3339 = require("./lib/dateToRef3339.js");
+const getNewestCollectionItemDate = require("./lib/getNewestCollectionItemDate.js");
+const htmlDateString = require("./lib/htmlDateString.js");
+const imageShortcode = require("./lib/imageShortcode.js");
+const markdownLibrary = require("./lib/markdownLibrary.js");
+const prettify = require("./lib/prettify.js");
+const processHtmlForFeed = require("./lib/processHtmlForFeed.js");
+const readableDate = require("./lib/readableDate.js");
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({
-    "./static/": "/",
-  });
+  eleventyConfig.addPassthroughCopy({ "./static/": "/" });
   eleventyConfig.addPassthroughCopy("img");
-
-  eleventyConfig.addPlugin(pluginBundle);
-  eleventyConfig.addPlugin(pluginMarkdown);
-  eleventyConfig.addPlugin(pluginSass);
-
   eleventyConfig.addFilter("absoluteUrl", absoluteUrl);
-
-  eleventyConfig.addAsyncFilter(
-    "processHtmlForFeed",
-    async (htmlContent, base) => {
-      const plugin = urls({ eachURL: (url) => absoluteUrl(url.trim(), base) });
-      const { html } = await posthtml().use(plugin).process(htmlContent);
-      return html;
-    },
+  eleventyConfig.addAsyncFilter("processHtmlForFeed", processHtmlForFeed);
+  eleventyConfig.addFilter(
+    "getNewestCollectionItemDate",
+    getNewestCollectionItemDate,
   );
-
-  eleventyConfig.addFilter("getNewestCollectionItemDate", (collection) => {
-    if (!collection?.length) {
-      return new Date();
-    }
-
-    return new Date(
-      Math.max(
-        ...collection.map((item) => {
-          return item.date;
-        }),
-      ),
-    );
-  });
-
-  // Atom uses RFC 3339 dates
-  // https://tools.ietf.org/html/rfc3339#section-5.8
-  eleventyConfig.addFilter("dateToRfc3339", (date) => {
-    const isoDate = date.toISOString();
-    const [isoDateWithoutMS] = isoDate.split(".");
-    return `${isoDateWithoutMS}Z`;
-  });
-
-  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
-    // dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-    // https://moment.github.io/luxon/#/formatting?id=table-of-tokens
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
-  });
-
-  eleventyConfig.addFilter("readableDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toLocaleString(
-      DateTime.DATE_FULL,
-    );
-  });
-
-  eleventyConfig.addTransform("pretty", async function (content) {
-    const parsedPath = path.parse(this.page.outputPath);
-    const { languages } = await prettier.getSupportInfo();
-    const lang = languages.find(({ extensions }) =>
-      extensions?.some((ext) => ext === parsedPath.ext),
-    );
-    if (!lang) {
-      // prettier cannot format this file.
-      return content;
-    }
-    const formatted = await prettier.format(content, {
-      filepath: this.page.outputPath,
-    });
-    return formatted;
-  });
-
+  eleventyConfig.addFilter("dateToRfc3339", dateToRef3339);
+  eleventyConfig.addFilter("htmlDateString", htmlDateString);
+  eleventyConfig.addFilter("readableDate", readableDate);
+  eleventyConfig.addTransform("pretty", prettify);
   eleventyConfig.setLiquidOptions({ jsTruthy: true });
+  eleventyConfig.setLibrary("md", markdownLibrary);
+  eleventyConfig.addPairedShortcode("image", imageShortcode);
+  eleventyConfig.addTemplateFormats("scss");
+  eleventyConfig.addExtension("scss", {
+    outputFileExtension: "css",
+    compile: compileScss,
+  });
 
   return {
     templateFormats: ["html", "md", "liquid"],

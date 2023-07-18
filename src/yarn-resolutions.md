@@ -11,19 +11,21 @@ tags:
 
 I was working with [Yarn 2 workspaces][] monorepo recently, and I needed to install a different version of React in different workspaces. The setup for that is straightforward. In each workspace's `package.json` file, you set the dependency versions as usual. For this example, I have `project-one` and `project-two` with different versions of React.
 
-```json:packages/project-one/package.json
+```json
 {
-	"dependencies": {
-		"react": "^17.0.0"
-	}
+  "name": "project-one",
+  "dependencies": {
+    "react": "^17.0.0"
+  }
 }
 ```
 
-```json:packages/project-two/package.json
+```json
 {
-	"dependencies": {
-		"react": "^18.0.0"
-	}
+  "name": "project-two",
+  "dependencies": {
+    "react": "^18.0.0"
+  }
 }
 ```
 
