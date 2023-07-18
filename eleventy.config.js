@@ -22,7 +22,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("dateToRfc3339", dateToRef3339);
   eleventyConfig.addFilter("htmlDateString", htmlDateString);
   eleventyConfig.addFilter("readableDate", readableDate);
-  eleventyConfig.addTransform("pretty", prettify);
+  eleventyConfig.addTransform("prettify", prettify);
   eleventyConfig.setLiquidOptions({ jsTruthy: true });
   eleventyConfig.setLibrary("md", markdownLibrary);
   eleventyConfig.addPairedShortcode("image", imageShortcode);

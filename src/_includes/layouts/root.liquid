@@ -37,40 +37,51 @@
 <body>
   <a class="screen-reader screen-reader-focusable" href="#main">Skip to main content</a>
 
-  <nav class="site-nav" role="navigation">
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/now">Now</a>
-      </li>
-      <li>
-        <a href="/about">About</a>
-      </li>
-      <li>
-        <a href="/feed.xml">RSS</a>
-      </li>
-    </ul>
-  </nav>
+  <header class="header">
+    <div class="header-layout">
+      <div class="header-title">
+        <a href="/">Tony Mottaz</a>
+      </div>
+      <div class="header-nav">
+        <nav class="nav">
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/now">Now</a>
+            </li>
+            <li>
+              <a href="/about">About</a>
+            </li>
+            <li>
+              <a href="/feed.xml">RSS</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
 
   <main id="main">
-    {{ content }}
-
-    <footer class="site-footer">
-      <p>
-        <small>
-          The content for this site is
-          <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>.
-          <br />
-          The
-          <a href="https://github.com/awmottaz/tonymottaz.com">code for this site</a>
-          is
-          <a href="https://github.com/awmottaz/tonymottaz.com/blob/main/LICENSE.txt">BSD-3-Clause</a>.
-        </small>
-      </p>
-    </footer>
+    <div class="main-layout">{{ content }}</div>
   </main>
+
+  <footer class="footer">
+    <h1 class="footer-title"><a href="/">Tony Mottaz</a></h1>
+
+    <p>
+      <small>
+        The content for this site is
+        <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>.
+        <br />
+        The
+        <a href="https://github.com/awmottaz/tonymottaz.com">code for this site</a>
+        is
+        <a href="https://github.com/awmottaz/tonymottaz.com/blob/main/LICENSE.txt">BSD-3-Clause</a>.
+      </small>
+    </p>
+  </footer>
 </body>
 
 </html>

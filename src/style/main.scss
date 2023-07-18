@@ -1,233 +1,60 @@
 @use "highlight.js/styles/a11y-light.css";
-
-@font-face {
-  font-family: Bitter;
-  font-style: normal;
-  font-weight: 400;
-  src:
-    local("Bitter"),
-    local("Bitter-Regular"),
-    url("/font/Bitter-Regular.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Bitter;
-  font-style: italic;
-  font-weight: 400;
-  src:
-    local("Bitter Italic"),
-    local("Bitter-Italic"),
-    url("/font/Bitter-Italic.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Bitter;
-  font-style: normal;
-  font-weight: 700;
-  src:
-    local("Bitter Bold"),
-    local("Bitter-Bold"),
-    url("/font/Bitter-Bold.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Bitter;
-  font-style: italic;
-  font-weight: 700;
-  src:
-    local("Bitter BoldItalic"),
-    local("Bitter-BoldItalic"),
-    url("/font/Bitter-BoldItalic.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Bitter;
-  font-style: normal;
-  font-weight: 900;
-  src:
-    local("Bitter Black"),
-    local("Bitter-Black"),
-    url("/font/Bitter-Black.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Brutalist Mono;
-  font-style: normal;
-  font-weight: 400;
-  src:
-    local("Brutalist Mono"),
-    local("BrutalistMono") url("/font/BrutalistMono.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Brutalist Mono;
-  font-style: italic;
-  font-weight: 400;
-  src:
-    local("Brutalist Mono Oblique"),
-    local("BrutalistMono-Oblique") url("/font/BrutalistMono-Oblique.woff2")
-      format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Brutalist Mono;
-  font-style: oblique;
-  font-weight: 400;
-  src:
-    local("Brutalist Mono Oblique"),
-    local("BrutalistMono-Oblique") url("/font/BrutalistMono-Oblique.woff2")
-      format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Brutalist Mono;
-  font-style: normal;
-  font-weight: 600;
-  src:
-    local("Brutalist Mono Bold"),
-    local("BrutalistMono-Bold") url("/font/BrutalistMono-Bold.woff2")
-      format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Brutalist Mono;
-  font-style: italic;
-  font-weight: 400;
-  src:
-    local("Brutalist Mono BoldOblique"),
-    local("BrutalistMono-BoldOblique")
-      url("/font/BrutalistMono-BoldOblique.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Brutalist Mono;
-  font-style: oblique;
-  font-weight: 400;
-  src:
-    local("Brutalist Mono BoldOblique"),
-    local("BrutalistMono-BoldOblique")
-      url("/font/BrutalistMono-BoldOblique.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Work Sans;
-  font-style: normal;
-  font-weight: 400;
-  src:
-    local("Work Sans"),
-    local("WorkSans-Regular"),
-    url("/font/WorkSans-Regular.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Work Sans;
-  font-style: italic;
-  font-weight: 400;
-  src:
-    local("Work Sans Italic"),
-    local("WorkSans-Italic"),
-    url("/font/WorkSans-Italic.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Work Sans;
-  font-style: normal;
-  font-weight: 700;
-  src:
-    local("Work Sans Bold"),
-    local("WorkSans-Bold"),
-    url("/font/WorkSans-Bold.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Work Sans;
-  font-style: italic;
-  font-weight: 700;
-  src:
-    local("Work Sans BoldItalic"),
-    local("WorkSans-BoldItalic"),
-    url("/font/WorkSans-BoldItalic.woff2") format("woff2");
-  font-display: swap;
-}
-
-:root {
-  --font-family-main: Bitter, Charter, "Bitstream Charter", "Sitka Text",
-    Cambria, serif;
-  --font-family-mono: "Brutalist Mono", ui-monospace, "Cascadia Code",
-    "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
-  --font-family-caption: "Work Sans", system-ui, sans-serif;
-  --content-width: 66ch;
-
-  --color-page-background: #eee;
-  --color-text: #111;
-  --color-codeBackgroundInline: #e0e0e0;
-  --color-border: #777;
-  /* Sync this with torchlight theme background */
-  --color-codeBlockBackground: #1e1e1e;
-
-  --radius-md: 8px;
-}
+@use "style/agreements" as a;
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  font-size: 1.2rem;
   font-kerning: normal;
-  font-family: var(--font-family-main);
+  font-family: a.$font-primary;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   line-height: 1.6;
   word-break: break-word;
-}
 
-@supports (hanging-punctuation: first) {
-  html {
+  @media (min-width: 30em) {
+    font-size: 120%;
+  }
+  @media (min-width: 40em) {
+    font-size: 140%;
+  }
+
+  @supports (hanging-punctuation: first) {
     hanging-punctuation: first;
   }
 }
 
 body {
-  padding: 1rem;
-  max-width: 60ch;
-  margin-inline: auto;
-
-  background-color: var(--color-page-background);
-  color: var(--color-text);
-}
-
-:is(h1, h2, h3, h4, h5, h6) {
-  margin-top: 2.5em;
-  margin-bottom: 1rem;
-}
-:is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
-  margin-top: 1.25rem;
+  background-color: a.$color-pageBackground;
+  color: a.$color-text;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  min-height: 100vh;
 }
 h1 {
   font-size: 1.4rem;
+  &.footer-title {
+    font-size: 1rem;
+    margin: 0;
+  }
 }
 h2 {
   font-size: 1.2rem;
 }
 h3 {
   font-size: 1.1rem;
+
+  aside > & {
+    font-size: 1.4em;
+    font-variant: all-small-caps;
+    margin: 0;
+  }
 }
 h4 {
   font-size: 1rem;
@@ -235,15 +62,42 @@ h4 {
 
 a {
   text-underline-offset: 2px;
+
+  .header-title > &:link,
+  .header-title > &:visited,
+  .footer-title > &:link,
+  .footer-title > &:visited {
+    color: a.$color-text;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .header-nav &:link,
+  .header-nav &:visited {
+    color: a.$color-text;
+    text-decoration: none;
+  }
+}
+
+ul {
+  list-style: none;
+
+  .header-nav & {
+    list-style: none;
+    display: flex;
+    gap: 4px 24px;
+    flex-wrap: wrap;
+  }
 }
 
 hr {
   border: none;
   text-align: center;
   margin-block: 2rem;
-}
-hr::after {
-  content: "* * *";
+
+  &::after {
+    content: "* * *";
+  }
 }
 
 img {
@@ -252,59 +106,35 @@ img {
 }
 
 figcaption {
-  font-family: var(--font-family-caption);
   line-height: 1.2;
-}
-
-time {
-  font-family: var(--font-family-caption);
 }
 
 aside {
   margin-block: 1.5rem;
-  border: 1px solid var(--color-border);
-  border-left-width: 8px;
-  border-radius: var(--radius-md);
+  border: 1px solid a.$color-border;
+  border-radius: 8px;
   padding: 0.8rem;
   font-size: 0.9rem;
   line-height: 1.3;
-}
-aside > h3 {
-  font-size: 1.4em;
-  font-variant: all-small-caps;
-  margin: 0;
-}
-aside > *:first-child {
-  margin-top: 0;
-}
-aside > *:last-child {
-  margin-bottom: 0;
+
+  & > *:first-child {
+    margin-top: 0;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
 }
 
 code {
-  font-family: var(--font-family-mono);
-  /*
-	 * Disable coding ligatures. They reduce clarity of which characters were actually typed, and
-	 * Overpass Mono has a bug where the "fi" ligature takes up one character width. _Blech_
-	 */
-  font-feature-settings: "liga" off;
+  font-family: a.$font-code;
+
+  &:not(pre > code):not(h1 code):not(h2 code):not(h3 code):not(h4 code) {
+    background-color: a.$color-inlineCodeBg;
+    padding: 0.125em 0.25em;
+    border-radius: 0.25em;
+    font-size: 0.9rem;
+  }
 }
-
-code:not(pre > code):not(h1 code):not(h2 code):not(h3 code):not(h4 code) {
-  background-color: var(--color-codeBackgroundInline);
-  padding: 0.125em 0.25em;
-  border-radius: 0.25em;
-  font-size: 0.9rem;
-}
-
-/*
-If you want something to be visually hidden, but still accessible to screen readers, then you need
-to apply a smattering of styles for this to work correctly. The MDN points out that `display: none`
-will remove the element from the accessibility tree, and links to this article with a better
-strategy: https://gomakethings.com/hidden-content-for-better-a11y/#hiding-the-link
-
-The snippet below is copied from that article.
-*/
 
 /**
  * Visually hide an element, but leave it available for screen readers
@@ -344,28 +174,31 @@ The snippet below is copied from that article.
   width: auto;
 }
 
-.remark-code-container {
-  margin-block: 1rem;
+.header-layout {
+  padding: 16px 24px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px 48px;
+  flex-wrap: wrap;
+  max-width: 1000px;
 }
 
-.remark-code-container > .remark-code-title {
-  border: 2px solid var(--color-codeBlockBackground);
-  background-color: var(--color-codeBackgroundInline);
-  padding: 4px;
-  align-self: start;
-  font-size: 0.9rem;
-  transform: translateY(2px);
-  font-family: var(--font-family-caption);
+.main-layout {
+  display: grid;
+  grid-template-columns:
+    [edgeStart] 24px [wideStart] 1fr [contentStart]
+    minmax(min-content, 60ch)
+    [contentEnd] 1fr [wideEnd] 24px [edgeEnd];
+
+  & > * {
+    grid-column: contentStart/contentEnd;
+  }
 }
 
-.remark-code-container pre {
-  padding: 4px;
-  margin: 0;
-  font-size: 0.9rem;
-  tab-size: 4;
-  overflow-x: auto;
+.footer {
+  padding: 24px;
+  margin-top: auto;
+  background-color: a.$color-pageBackgroundDim;
 }
 
 .post-list {
@@ -400,19 +233,4 @@ The snippet below is copied from that article.
   margin-top: 16px;
   font-size: 0.9rem;
   font-style: italic;
-}
-
-.site-footer {
-  margin-top: 3rem;
-  padding-block: 1rem;
-  border-top: 2px dotted;
-  border-color: var(--color-border);
-}
-
-.site-nav > ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  gap: 32px;
 }
