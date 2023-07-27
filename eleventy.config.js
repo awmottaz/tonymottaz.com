@@ -5,7 +5,7 @@ const getNewestCollectionItemDate = require("./lib/getNewestCollectionItemDate.j
 const htmlDateString = require("./lib/htmlDateString.js");
 const imageShortcode = require("./lib/imageShortcode.js");
 const markdownLibrary = require("./lib/markdownLibrary.js");
-const prettify = require("./lib/prettify.js");
+const minify = require("./lib/minify.js");
 const processHtmlForFeed = require("./lib/processHtmlForFeed.js");
 const readableDate = require("./lib/readableDate.js");
 
@@ -22,7 +22,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("dateToRfc3339", dateToRef3339);
   eleventyConfig.addFilter("htmlDateString", htmlDateString);
   eleventyConfig.addFilter("readableDate", readableDate);
-  eleventyConfig.addTransform("prettify", prettify);
+  eleventyConfig.addTransform("minify", minify);
   eleventyConfig.setLiquidOptions({ jsTruthy: true });
   eleventyConfig.setLibrary("md", markdownLibrary);
   eleventyConfig.addPairedShortcode("image", imageShortcode);
