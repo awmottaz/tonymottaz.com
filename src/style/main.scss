@@ -1,5 +1,34 @@
 @use "highlight.js/styles/a11y-light.css";
-@use "style/agreements" as a;
+
+$gray-0: hsl(213, 21%, 16%);
+$gray-1: hsl(210, 19%, 25%);
+$gray-2: hsl(210, 16%, 34%);
+$gray-3: hsl(210, 11%, 59%);
+$gray-4: hsl(210, 8%, 74%);
+$gray-5: hsl(210, 6%, 85%);
+$gray-6: hsl(210, 3%, 90%);
+$gray-7: hsl(210, 3%, 94%);
+$gray-8: hsl(210, 2%, 96%);
+$gray-9: hsl(210, 1%, 98%);
+
+$color-fg: $gray-0;
+$color-bg: $gray-9;
+$color-bgDim: $gray-7;
+$color-border: $gray-5;
+
+$text-xs: 0.8rem;
+$text-sm: 0.9rem;
+$text-md: 1rem;
+$text-lg: 1.15rem;
+$text-xl: 1.3rem;
+$text-xxl: 1.5rem;
+
+$font-primary: Charter, Georgia, "Bitstream Charter", "Sitka Text", Cambria,
+  serif;
+$font-secondary: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+  Arial, sans-serif;
+$font-code: ui-monospace, "Commit Mono", "Cascadia Code", "Source Code Pro",
+  Menlo, Consolas, "DejaVu Sans Mono", monospace;
 
 *,
 *::before,
@@ -9,12 +38,16 @@
   padding: 0;
 }
 
+ul,
+ol {
+  padding-inline-start: 40px;
+}
+
 html {
   font-kerning: normal;
-  font-family: a.$font-primary;
+  font-family: $font-primary;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  line-height: 1.6;
   word-break: break-word;
 
   @media (min-width: 30em) {
@@ -30,74 +63,16 @@ html {
 }
 
 body {
-  background-color: a.$color-pageBackground;
-  color: a.$color-text;
+  background-color: $color-bg;
+  color: $color-fg;
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
   min-height: 100vh;
 }
-h1 {
-  font-size: 1.4rem;
-  &.footer-title {
-    font-size: 1rem;
-    margin: 0;
-  }
-}
-h2 {
-  font-size: 1.2rem;
-}
-h3 {
-  font-size: 1.1rem;
-
-  aside > & {
-    font-size: 1.4em;
-    font-variant: all-small-caps;
-    margin: 0;
-  }
-}
-h4 {
-  font-size: 1rem;
-}
 
 a {
   text-underline-offset: 2px;
-
-  .header-title > &:link,
-  .header-title > &:visited,
-  .footer-title > &:link,
-  .footer-title > &:visited {
-    color: a.$color-text;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .header-nav &:link,
-  .header-nav &:visited {
-    color: a.$color-text;
-    text-decoration: none;
-  }
-}
-
-ul {
-  list-style: none;
-
-  .header-nav & {
-    list-style: none;
-    display: flex;
-    gap: 4px 24px;
-    flex-wrap: wrap;
-  }
-}
-
-hr {
-  border: none;
-  text-align: center;
-  margin-block: 2rem;
-
-  &::after {
-    content: "* * *";
-  }
 }
 
 img {
@@ -105,46 +80,42 @@ img {
   height: auto;
 }
 
-figcaption {
-  line-height: 1.2;
-}
-
-aside {
-  margin-block: 1.5rem;
-  border: 1px solid a.$color-border;
-  border-radius: 8px;
-  padding: 0.8rem;
-  font-size: 0.9rem;
-  line-height: 1.3;
-
-  & > *:first-child {
-    margin-top: 0;
-  }
-  & > *:last-child {
-    margin-bottom: 0;
-  }
+hr {
+  margin-block: 0.5rem;
+  border: none;
+  border-top: 1px solid $color-border;
 }
 
 code {
-  font-family: a.$font-code;
+  font-family: $font-code;
 
+  /* Styles for inline code within normal text content. */
   &:not(pre > code):not(h1 code):not(h2 code):not(h3 code):not(h4 code) {
-    background-color: a.$color-inlineCodeBg;
+    background-color: $color-bgDim;
     padding: 0.125em 0.25em;
     border-radius: 0.25em;
     font-size: 0.9rem;
   }
+
+  pre > &[class^="language-"] {
+    font-size: $text-xs;
+  }
+}
+
+pre:has(> code[class^="language-"]) {
+  border: 2px solid $gray-2;
+  padding: 4px;
 }
 
 /**
- * Visually hide an element, but leave it available for screen readers
- * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
- * @link http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- * @example
- * <label class="screen-reader" for="search">Search criteria</label>
- * <input type="text" id="search" name="search" value="">
- */
-.screen-reader {
+  * Visually hide an element, but leave it available for screen readers
+  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
+  * @link http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+  * @example
+  * <label class="_screen-reader" for="search">Search criteria</label>
+  * <input type="text" id="search" name="search" value="">
+  */
+._screen-reader {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -154,83 +125,180 @@ code {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+
+  /**
+    * Extends the ._screen-reader class to allow the element to be focusable when navigated to via
+    * the keyboard.
+    * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
+    * @link https://www.drupal.org/node/897638
+    * @example
+    * <a class="_screen-reader -focusable" href="#main">Skip to the main content</a>
+    */
+  &.-focusable {
+    &:active,
+    &:focus {
+      clip: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      position: static;
+      white-space: normal;
+      width: auto;
+    }
+  }
 }
 
-/**
-   * Extends the .screen-reader class to allow the element to be focusable when navigated to via the keyboard
-   * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
-   * @link https://www.drupal.org/node/897638
-   * @example
-   * <a class="screen-reader screen-reader-focusable" href="#main">Skip to the main content</a>
-   */
-.screen-reader-focusable:active,
-.screen-reader-focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: normal;
-  width: auto;
+/* subtle links have the text color and no decorations except on hover */
+._subtle-link {
+  color: currentColor;
+  text-decoration-line: none;
+
+  &:visited {
+    color: currentColor;
+  }
+
+  &:hover,
+  &:focus-visible {
+    text-decoration-line: underline;
+  }
 }
 
-.header-layout {
+._no-bullets {
+  list-style: none;
+  padding: 0;
+}
+
+.root-header {
   padding: 16px 24px;
   display: flex;
   justify-content: space-between;
   gap: 8px 48px;
   flex-wrap: wrap;
-  max-width: 1000px;
-}
+  border-bottom: 1px solid $color-border;
 
-.main-layout {
-  display: grid;
-  grid-template-columns:
-    [edgeStart] 24px [wideStart] 1fr [contentStart]
-    minmax(min-content, 60ch)
-    [contentEnd] 1fr [wideEnd] 24px [edgeEnd];
+  .title {
+    font-weight: bold;
+  }
 
-  & > * {
-    grid-column: contentStart/contentEnd;
+  .nav-list {
+    display: flex;
+    gap: 8px 24px;
+    flex-wrap: wrap;
   }
 }
 
-.footer {
+.root-main-layout {
+  padding: 36px 16px;
+  max-width: 60ch;
+  margin-inline: auto;
+
+  .post-header {
+    margin-bottom: 64px;
+  }
+}
+
+.root-footer {
   padding: 24px;
   margin-top: auto;
-  background-color: a.$color-pageBackgroundDim;
+  background-color: $color-bgDim;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .title {
+    font-size: $text-md;
+  }
+
+  .link-list {
+    font-size: $text-sm;
+    line-height: 1.3;
+  }
 }
 
 .post-list {
-  padding-inline-start: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
-.post-list__timestamp {
-  font-size: 0.9rem;
-}
+.post-list-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 
-.post-list__link {
-  text-indent: 1rem;
-}
-
-.post-link__title {
-  line-height: 1.2;
+  & > .date {
+    font-size: $text-xs;
+  }
 }
 
 .post-header {
-  margin-block: 3rem;
+  .title {
+    font-size: $text-xxl;
+  }
+  .timestamp {
+    font-size: $text-xs;
+  }
+  .subtitle {
+    font-size: $text-xs;
+  }
 }
 
-.post-header__title {
-  font-size: 1.8rem;
-  font-weight: 900;
-  line-height: 1;
-  margin: 0;
+.prose {
+  line-height: 1.5;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.2;
+    margin-block-start: 1.5em;
+    margin-block-end: 1em;
+  }
+  h2 {
+    font-size: $text-lg;
+  }
+  h3 {
+    font-size: $text-md;
+  }
+  h4 {
+    font-size: $text-sm;
+  }
+
+  p {
+    margin-block: 1rem;
+  }
+
+  pre:has(> code[class^="language-"]) {
+    margin-block: 1rem;
+  }
+
+  aside {
+    border: 2px solid $color-border;
+    padding: 16px;
+    background-color: $color-bgDim;
+    font-family: $font-secondary;
+    font-size: $text-sm;
+
+    & > *:first-child {
+      margin-top: 0;
+    }
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
-.post-header__timestamp {
-  display: block;
-  margin-top: 16px;
-  font-size: 0.9rem;
-  font-style: italic;
+.image-figure {
+  margin: 0.75rem auto;
+  max-width: 600px;
+
+  .caption-text {
+    font-family: $font-secondary;
+    font-size: $text-sm;
+    line-height: 1.2;
+    max-width: 40ch;
+    margin-inline: auto;
+  }
 }

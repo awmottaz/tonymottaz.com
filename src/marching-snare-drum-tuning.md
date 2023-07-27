@@ -27,8 +27,8 @@ Grease the lug bolts using white lithium grease. You need less grease than you t
 
 Start with the top head. Put it on, and slowly start to apply tension using a crisscross pattern around the tension rods.
 
-{% image "img/tension_pattern.jpeg", "A drawing of a circle representing a drum and twelve dots representing the twelve lugs on a drum. Each lug has a number and arrows between them to indicate the order in which you should tension the lugs. If the lugs were numbered like a clock, you would go in the order: 1, 7, 6, 12, 3, 9, 10, 4, 2, 8, 5, 11." %}
-This is the tension pattern that I like to use. I see the lugs in three grouping of four: a vertical group, a horizontal group, and the four corners.
+{% image "img/tension_pattern.jpeg" "A drawing of a circle representing a drum and twelve dots representing the twelve lugs on a drum. Each lug has a number and arrows between them to indicate the order in which you should tension the lugs. If the lugs were numbered like a clock, you would go in the order: 1, 7, 6, 12, 3, 9, 10, 4, 2, 8, 5, 11." %}
+This is the tension pattern that I like to use. I see the lugs in three groupings of four: a vertical group, a horizontal group, and the four corners.
 {% endimage %}
 
 At the beginning, you can use a couple full turns of your drum key. After a couple passes it's best to use half turns. Once you get to about 70% of the final tension, I wouldn't go more than a quarter or eighth of a turn at a time.

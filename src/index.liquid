@@ -3,18 +3,21 @@ layout: layouts/root.liquid
 description: The home page of tonymottaz.com
 ---
 
-<h1>tonymottaz.com</h1>
-
-<ul class="post-list">
+<ul class="post-list _no-bullets">
   {%- for post in collections.post | reverse -%}
   <li>
-    <a class="post-list__link" href="{{ post.url }}">
-      <span class="post-list__title">{{ post.data.title }}</span>
-    </a>
-    &mdash;
-    <time class="post-list__timestamp" datetime="{{ post.data.date | htmlDateString }}">
-      {{ post.data.date | readableDate }}
-    </time>
+    <div class="post-list-layout">
+      <div class="title">
+        <a href="{{ post.url }}">
+          <span class="link-text">{{ post.data.title }}</span>
+        </a>
+      </div>
+      <div class="date">
+        <time class="post-list__timestamp" datetime="{{ post.data.date | htmlDateString }}">
+          {{ post.data.date | readableDate }}
+        </time>
+      </div>
+    </div>
   </li>
   {%- endfor -%}
 </ul>

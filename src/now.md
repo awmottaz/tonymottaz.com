@@ -2,13 +2,9 @@
 title: Now
 description: "What I've been up to"
 layout: layouts/now.liquid
-date: 2022-04-01
+date: 2023-07-27
 ---
 
-- I just rebuilt this website to be even _simpler_ and _faster_ than before.
-- Planning for our wedding this summer!
-- Co-directing the Minnesota Timberwolves PACKcussion drumline.
+I am getting married soon! I am very excited about that.
 
----
-
-This is a ["Now" page](https://nownownow.com/).
+I am co-directing the [Timberwolves PACKcussion drumline](https://www.nba.com/timberwolves/entertainment/packcussion). We are currently accepting auditions!
