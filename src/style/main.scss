@@ -56,10 +56,6 @@ html {
   @media (min-width: 40em) {
     font-size: 140%;
   }
-
-  @supports (hanging-punctuation: first) {
-    hanging-punctuation: first;
-  }
 }
 
 body {
