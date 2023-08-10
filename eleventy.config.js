@@ -11,7 +11,10 @@ const readableDate = require("./lib/readableDate.js");
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ "./static/": "/" });
+  eleventyConfig.addPassthroughCopy({
+    "./static/": "/",
+    "./src/robots.txt": "/robots.txt",
+  });
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addFilter("absoluteUrl", absoluteUrl);
   eleventyConfig.addAsyncFilter("processHtmlForFeed", processHtmlForFeed);
