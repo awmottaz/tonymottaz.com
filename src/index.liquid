@@ -4,20 +4,20 @@ description: The home page of tonymottaz.com
 ---
 
 <ul class="post-list _no-bullets">
-  {%- for post in collections.post | reverse -%}
-  <li>
-    <div class="post-list-layout">
-      <div class="title">
-        <a href="{{ post.url }}">
-          <span class="link-text">{{ post.data.title }}</span>
-        </a>
+  {%- for post in collections.post reversed -%}
+    <li>
+      <div class="post-list-layout">
+        <div class="title">
+          <a href="{{ post.url }}">
+            <span class="link-text">{{ post.data.title }}</span>
+          </a>
+        </div>
+        <div class="date">
+          <time class="post-list__timestamp" datetime="{{ post.data.date | htmlDateString }}">
+            {{ post.data.date | readableDate }}
+          </time>
+        </div>
       </div>
-      <div class="date">
-        <time class="post-list__timestamp" datetime="{{ post.data.date | htmlDateString }}">
-          {{ post.data.date | readableDate }}
-        </time>
-      </div>
-    </div>
-  </li>
+    </li>
   {%- endfor -%}
 </ul>
