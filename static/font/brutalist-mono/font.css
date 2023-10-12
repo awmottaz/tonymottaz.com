@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Brutalist Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: url('./BrutalistMono.woff2') format('woff2');
+}
+@font-face {
+    font-family: "Brutalist Mono";
+    font-style: italic;
+    font-weight: 400;
+    src: url('./BrutalistMono-Oblique.woff2') format('woff2');
+}
+@font-face {
+    font-family: "Brutalist Mono";
+    font-style: normal;
+    font-weight: 700;
+    src: url('./BrutalistMono-Bold.woff2') format('woff2');
+}
+@font-face {
+    font-family: "Brutalist Mono";
+    font-style: italic;
+    font-weight: 700;
+    src: url('./BrutalistMono-BoldOblique.woff2') format('woff2');
+}
