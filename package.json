@@ -17,19 +17,18 @@
   "license": "SEE LICENSE IN LICENSE.txt",
   "devDependencies": {
     "@11ty/eleventy": "2.0.1",
-    "@11ty/eleventy-img": "3.1.0",
-    "browserslist": "4.21.9",
+    "@11ty/eleventy-img": "3.1.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "5.0.0",
+    "browserslist": "4.22.1",
     "cli-real-favicon": "0.0.8",
-    "highlight.js": "11.8.0",
     "html-minifier-terser": "7.2.0",
-    "lightningcss": "1.21.5",
-    "luxon": "3.3.0",
+    "lightningcss": "1.22.0",
+    "luxon": "3.4.3",
     "posthtml": "0.16.6",
     "posthtml-remove-attributes": "1.0.0",
     "posthtml-urls": "1.0.0",
-    "prettier": "3.0.0",
-    "remarkable": "2.0.1",
-    "sass": "1.63.6",
-    "serve": "14.2.0"
+    "prettier": "3.0.3",
+    "sass": "1.69.3",
+    "serve": "14.2.1"
   }
 }

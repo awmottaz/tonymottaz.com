@@ -1,3 +1,4 @@
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const absoluteUrl = require("./lib/absoluteUrl.js");
 const compileScss = require("./lib/compileScss.js");
 const dateToRef3339 = require("./lib/dateToRef3339.js");
@@ -28,6 +29,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addTransform("minify", minify);
   eleventyConfig.setLiquidOptions({ jsTruthy: true });
   eleventyConfig.setLibrary("md", markdownLibrary);
+  eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPairedShortcode("image", imageShortcode);
   eleventyConfig.addTemplateFormats("scss");
   eleventyConfig.addExtension("scss", {

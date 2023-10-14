@@ -1,7 +1,9 @@
-@use "highlight.js/styles/a11y-light.css";
+@use 'syntax';
 
-// Flexoki color scheme
-// https://stephango.com/flexoki
+/*!
+ * Flexoki color scheme
+ * https://stephango.com/flexoki
+ */
 $black: #100F0F;
 $gray-950: #1C1B1A;
 $gray-900: #282726;
@@ -28,6 +30,11 @@ $light-bg: $paper;
 
 $blue: #205EA6;
 $purple: #5E409D;
+
+/*!
+ * Original styles - tonymottaz.com
+ * Tony Mottaz
+ */
 
 $text-xs: 0.8rem;
 $text-sm: 0.9rem;
@@ -122,8 +129,7 @@ code {
 }
 
 pre:has(> code[class^="language-"]) {
-  border: 2px solid $light-ui-3;
-  padding: 4px;
+  padding: 8px;
 }
 
 /**
