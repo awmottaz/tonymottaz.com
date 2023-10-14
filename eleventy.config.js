@@ -1,6 +1,5 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const absoluteUrl = require("./lib/absoluteUrl.js");
-const compileScss = require("./lib/compileScss.js");
 const dateToRef3339 = require("./lib/dateToRef3339.js");
 const getNewestCollectionItemDate = require("./lib/getNewestCollectionItemDate.js");
 const htmlDateString = require("./lib/htmlDateString.js");
@@ -9,6 +8,7 @@ const markdownLibrary = require("./lib/markdownLibrary.js");
 const minify = require("./lib/minify.js");
 const processHtmlForFeed = require("./lib/processHtmlForFeed.js");
 const readableDate = require("./lib/readableDate.js");
+const processCSS = require("./lib/processCSS.js");
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
@@ -26,16 +26,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("dateToRfc3339", dateToRef3339);
   eleventyConfig.addFilter("htmlDateString", htmlDateString);
   eleventyConfig.addFilter("readableDate", readableDate);
+  eleventyConfig.addFilter("processCSS", processCSS);
   eleventyConfig.addTransform("minify", minify);
   eleventyConfig.setLiquidOptions({ jsTruthy: true });
   eleventyConfig.setLibrary("md", markdownLibrary);
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPairedShortcode("image", imageShortcode);
-  eleventyConfig.addTemplateFormats("scss");
-  eleventyConfig.addExtension("scss", {
-    outputFileExtension: "css",
-    compile: compileScss,
-  });
 
   return {
     templateFormats: ["html", "md", "liquid"],

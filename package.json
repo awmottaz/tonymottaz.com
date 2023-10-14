@@ -28,7 +28,6 @@
     "posthtml-remove-attributes": "1.0.0",
     "posthtml-urls": "1.0.0",
     "prettier": "3.0.3",
-    "sass": "1.69.3",
     "serve": "14.2.1"
   }
 }

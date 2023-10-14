@@ -50,7 +50,15 @@
 
     <link rel="stylesheet" href="/font/haskoy/font.css">
     <link rel="stylesheet" href="/font/brutalist-mono/font.css">
-    <link rel="stylesheet" href="/style/main.css">
+
+    {% capture css %}
+      {% include 'a11y-dark.css' %}
+      {% include 'flexoki.css' %}
+      {% include 'main.css' %}
+    {% endcapture %}
+    <style>
+      {{css | processCSS}}
+    </style>
   </head>
 
   <body>
