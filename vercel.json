@@ -14,7 +14,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'none'; font-src 'self'; img-src 'self' data:; manifest-src 'self'; media-src 'self'; object-src 'self'; style-src 'self'; base-uri 'self'"
+          "value": "default-src 'none'; font-src 'self'; img-src 'self' data:; manifest-src 'self'; media-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline'; base-uri 'self'"
         },
         {
           "key": "Access-Control-Allow-Origin",
