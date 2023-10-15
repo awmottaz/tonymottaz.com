@@ -101,6 +101,44 @@ pre:has(> code[class^="language-"]) {
   padding: 8px;
 }
 
+.withfilename {
+  display: flex;
+  flex-direction: column;
+
+  & > span[id] {
+    background: #2b2b2b;
+    color: #fefefe;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom: 1px dashed var(--gray-600);
+    padding: 4px;
+    font-size: var(--text-xs);
+
+    & > code {
+      font-size: inherit;
+      background: unset;
+    }
+  }
+
+  && > div[aria-describedby] > pre[class^="language-"] {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+.icon {
+  vertical-align: sub;
+
+  & > svg {
+    height: 1em;
+
+    & path {
+      fill: currentColor;
+    }
+  }
+}
+
 /**
   * Visually hide an element, but leave it available for screen readers
   * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css

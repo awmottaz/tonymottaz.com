@@ -9,6 +9,7 @@ const minify = require("./lib/minify.js");
 const processHtmlForFeed = require("./lib/processHtmlForFeed.js");
 const readableDate = require("./lib/readableDate.js");
 const processCSS = require("./lib/processCSS.js");
+const withfilenameShortcode = require("./lib/withfilenameShortcode.js");
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
@@ -32,6 +33,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownLibrary);
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPairedShortcode("image", imageShortcode);
+  eleventyConfig.addPairedAsyncShortcode("withfilename", withfilenameShortcode);
 
   return {
     templateFormats: ["html", "md", "liquid"],

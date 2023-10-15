@@ -11,6 +11,8 @@ tags:
 
 I was working with [Yarn 2 workspaces][] monorepo recently, and I needed to install a different version of React in different workspaces. The setup for that is straightforward. In each workspace's `package.json` file, you set the dependency versions as usual. For this example, I have `project-one` and `project-two` with different versions of React.
 
+{% withfilename '<root>/packages/project-one/package.json' %}
+
 ```json
 {
   "name": "project-one",
@@ -20,6 +22,10 @@ I was working with [Yarn 2 workspaces][] monorepo recently, and I needed to inst
 }
 ```
 
+{% endwithfilename %}
+
+{% withfilename '<root>/packages/project-two/package.json' %}
+
 ```json
 {
   "name": "project-two",
@@ -28,6 +34,8 @@ I was working with [Yarn 2 workspaces][] monorepo recently, and I needed to inst
   }
 }
 ```
+
+{% endwithfilename %}
 
 [Yarn 2 workspaces]: https://yarnpkg.com/features/workspaces
 
@@ -41,6 +49,8 @@ Here's the rub: Yarn only allows you specify resolutions in the root workspace, 
 
 To do that, you need to use the following syntax:
 
+{% withfilename '<root>/package.json' %}
+
 ```json
 {
   "resolutions": {
@@ -50,7 +60,11 @@ To do that, you need to use the following syntax:
 }
 ```
 
+{% endwithfilename %}
+
 In general, if your dependency is listed in `dependencies` or `devDependencies` like this:
+
+{% withfilename '<root>/packages/<package-name>/package.json' %}
 
 ```json
 {
@@ -60,7 +74,11 @@ In general, if your dependency is listed in `dependencies` or `devDependencies` 
 }
 ```
 
+{% endwithfilename %}
+
 Then you can write a resolution rule like this:
+
+{% withfilename '<root>/package.json' %}
 
 ```json
 {
@@ -69,6 +87,8 @@ Then you can write a resolution rule like this:
   }
 }
 ```
+
+{% endwithfilename %}
 
 ## A note about "yarn set resolution"
 
