@@ -266,6 +266,7 @@ pre:has(> code[class^="language-"]) {
 .post-header {
   .title {
     font-size: var(--text-xxl);
+    text-wrap: balance;
   }
   .timestamp {
     font-size: var(--text-xs);
