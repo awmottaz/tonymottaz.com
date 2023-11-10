@@ -3,7 +3,8 @@
   "description": "My personal website",
   "private": true,
   "scripts": {
-    "build": "rm -rf _site && npx @11ty/eleventy",
+    "build": "npx @11ty/eleventy",
+    "clean": "rm -rf _site",
     "serve": "npx serve _site",
     "start": "npx @11ty/eleventy --serve --quiet",
     "favicon": "real-favicon generate faviconDescription.json faviconData.json .favicon",
@@ -21,7 +22,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "5.0.0",
     "@sindresorhus/slugify": "2.2.1",
     "browserslist": "4.22.1",
-    "cli-real-favicon": "0.0.8",
+    "cli-real-favicon": "^0.0.6",
     "escape-goat": "4.0.0",
     "html-minifier-terser": "7.2.0",
     "lightningcss": "1.22.0",
@@ -33,6 +34,6 @@
     "serve": "14.2.1"
   },
   "engines": {
-    "node": "18.x"
+    "node": "20.x.x"
   }
 }
