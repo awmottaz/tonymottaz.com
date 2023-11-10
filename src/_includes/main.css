@@ -244,6 +244,10 @@ pre:has(> code[class^="language-"]) {
   .link-list {
     font-size: var(--text-sm);
     line-height: 1.3;
+
+    & li + li {
+      margin-top: 12px;
+    }
   }
 }
 
