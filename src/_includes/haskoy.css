@@ -3,22 +3,26 @@
   font-style: normal;
   font-weight: 400;
   src: url("/font/haskoy/Haskoy-Regular.woff2") format("woff2");
+  font-display: swap;
 }
 @font-face {
   font-family: "Haskoy";
   font-style: italic;
   font-weight: 400;
   src: url("/font/haskoy/Haskoy-Italic.woff2") format("woff2");
+  font-display: swap;
 }
 @font-face {
   font-family: "Haskoy";
   font-style: normal;
   font-weight: 700;
   src: url("/font/haskoy/Haskoy-Bold.woff2") format("woff2");
+  font-display: swap;
 }
 @font-face {
   font-family: "Haskoy";
   font-style: italic;
   font-weight: 700;
   src: url("/font/haskoy/Haskoy-BoldItalic.woff2") format("woff2");
+  font-display: swap;
 }
