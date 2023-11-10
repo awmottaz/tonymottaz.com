@@ -3,6 +3,7 @@
   "description": "My personal website",
   "private": true,
   "scripts": {
+    "install-ci": "npm ci --audit=false --fund=false",
     "build": "npx @11ty/eleventy",
     "clean": "rm -rf _site",
     "serve": "npx serve _site",
