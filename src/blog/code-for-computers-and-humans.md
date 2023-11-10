@@ -2,9 +2,6 @@
 title: Writing code for both computers and humans
 description: Code is run by computers, but it is read by humans. In this post, I explore an example of code that is written with empathy for other programmers.
 date: 2023-10-15
-layout: layouts/post.liquid
-tags:
-	- post
 ---
 
 One day, I was reading some [source code from the Adobe Spectrum library][spectrum-code] when I saw this JavaScript ternary expression:

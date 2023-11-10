@@ -1,25 +1,15 @@
 ---
 layout: layouts/root.liquid
-description: The home page of tonymottaz.com
+description: All blog posts
+eleventyExcludeFromCollections: true
 ---
 
-<p>
-  Hi! I'm Tony. I am a front end web developer based in Minnesota.
-</p>
-<p>
-  This is my personal website. I write <a href="/blog">blog posts</a> occasionally, and sometimes include some
-  other stuff, too. You can read more about this site in the <a href="/about">about page</a>.
-</p>
-
-<h2>Most recent blog posts</h2>
-
+<h1>All blog posts</h1>
 <aside>
-  <p><em>See the <a href="/blog">full blog post archive</a></em></p>
+    <p>Subscribe to the <a href="/feed.xml">RSS feed</a></p>
 </aside>
-
-{% assign post_list = collections.post | reverse %}
 <ul class="post-list _no-bullets">
-  {%- for post in post_list limit:3 -%}
+  {%- for post in collections.post reversed -%}
     <li>
       <div class="post-list-layout">
         <div class="title">

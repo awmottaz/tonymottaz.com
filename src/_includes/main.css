@@ -255,6 +255,7 @@ pre:has(> code[class^="language-"]) {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  margin-block: 32px;
 }
 
 .post-list-layout {

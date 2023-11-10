@@ -6,14 +6,18 @@ description: About tonymottaz.com
 
 Hi! I'm Tony. I am a front end web developer based in Minnesota.
 
-This is my personal blog where I write about whatever I happen to be interested in. Maybe you
-will find it interesting, too.
+This is my personal website. I write [blog posts](/blog) occasionally, and sometimes include some
+other stuff, too.
 
-## How this site is built
+## Colophon
 
-I use [11ty](https://www.11ty.dev/) to write and build this website. It is deployed to [Vercel](https://vercel.com/). The source code can be found in [this GitHub repository](https://github.com/awmottaz/tonymottaz.com).
+I use [11ty](https://www.11ty.dev/) to write and build this website. It is deployed to [Render](https://render.com). This website has no tracking, analytics, cookies, or page view counting.
 
-This website has no tracking, analytics, cookies, or page view counting. Vercel provides me with [runtime server logs](https://vercel.com/docs/concepts/observability/runtime-logs). As far as I can tell, there is no identifying information available in those logs, and I can only see the most recent hour of logs. I almost never look at them anyway — I don't want to know anything about you.
+The source code can be found in [this GitHub repository](https://github.com/awmottaz/tonymottaz.com).
+
+The fonts you see on this site are [Haskoy](https://haskoy.ertekinn.com) and [Brutalist Mono](https://github.com/BRUTALISM/Brutalist).
+
+The primary color scheme is based on [Flexoki](https://stephango.com/flexoki). Code blocks use the [a11y-dark theme by Eric Bailey](https://github.com/ericwbailey/a11y-syntax-highlighting).
 
 ## Site accessibility
 

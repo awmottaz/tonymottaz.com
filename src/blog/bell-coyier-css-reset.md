@@ -2,9 +2,6 @@
 title: The Bell-Coyier CSS reset
 description: Distilling great ideas into a modern CSS reset
 date: 2023-10-04
-layout: layouts/post.liquid
-tags:
-	- post
 ---
 
 Not too long ago, [Andy Bell updated his modern CSS reset](https://andy-bell.co.uk/a-more-modern-css-reset/). Just the other day, [Chris Coyier reacted to it and offered some suggested modifications](https://chriscoyier.net/2023/10/03/being-picky-about-a-css-reset-for-fun-pleasure/). Here, I distill their ideas into a single modern CSS reset.
