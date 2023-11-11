@@ -1,0 +1,58 @@
+@media print {
+  :root {
+    --color-heading: inherit;
+  }
+  html {
+    font-size: 11pt;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .email {
+    font-family: monospace;
+  }
+  body header {
+    display: block;
+    margin-bottom: 12pt;
+  }
+  address {
+    margin-top: 8pt;
+    font-style: normal;
+  }
+  a,
+  a:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+  section {
+    margin: unset;
+    border: none;
+    padding: 0;
+    max-width: 100%;
+    line-height: 1.2;
+  }
+  section > h2 {
+    position: static;
+    text-align: left;
+    width: unset;
+    padding: 0;
+    margin-top: 20pt;
+    margin-bottom: 8pt;
+    border-bottom: 0.5pt solid;
+    padding-bottom: 4pt;
+  }
+  h2,
+  h3,
+  .item > dt {
+    break-before: auto;
+    break-after: avoid;
+  }
+  h2 + *,
+  h3 + * {
+    break-before: avoid;
+  }
+  p,
+  .entry {
+    break-inside: avoid;
+  }
+}
