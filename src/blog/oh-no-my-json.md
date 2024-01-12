@@ -50,11 +50,11 @@ Given this, I recommend adding an exception for code blocks at a minimum. I woul
 
 ```css
 html {
-	hanging-punctuation: first allow-end last;
+  hanging-punctuation: first allow-end last;
 }
 
 pre {
-	hanging-punctuation: none;
+  hanging-punctuation: none;
 }
 ```
 
