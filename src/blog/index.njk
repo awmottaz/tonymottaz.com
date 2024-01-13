@@ -1,15 +1,15 @@
 ---
-layout: layouts/root.liquid
+layout: layouts/root.njk
 description: All blog posts
 eleventyExcludeFromCollections: true
 ---
-
 <h1>All blog posts</h1>
 <aside>
-    <p>Subscribe to the <a href="/feed.xml">RSS feed</a></p>
+  <p>Subscribe to the <a href="/feed.xml">RSS feed</a>
+  </p>
 </aside>
 <ul class="post-list _no-bullets">
-  {%- for post in collections.post reversed -%}
+  {%- for post in collections.post | reverse -%}
     <li>
       <div class="post-list-layout">
         <div class="title">

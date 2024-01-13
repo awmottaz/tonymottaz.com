@@ -1,7 +1,7 @@
 ---
 title: Now
 description: "What I've been up to"
-layout: layouts/now.liquid
+layout: layouts/now.njk
 date: 2023-10-11
 ---
 

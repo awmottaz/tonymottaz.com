@@ -1,8 +1,7 @@
 ---
-layout: layouts/root.liquid
+layout: layouts/root.njk
 description: The home page of tonymottaz.com
 ---
-
 <p>
   Hi! I'm Tony. I am a front end web developer based in Minnesota.
 </p>
@@ -14,12 +13,15 @@ description: The home page of tonymottaz.com
 <h2>Most recent blog posts</h2>
 
 <aside>
-  <p><em>See the <a href="/blog">full blog post archive</a></em></p>
+  <p>
+    <em>See the <a href="/blog">full blog post archive</a>
+    </em>
+  </p>
 </aside>
 
-{% assign post_list = collections.post | reverse %}
+{% set post_list = collections.post | reverse | limit(3) %}
 <ul class="post-list _no-bullets">
-  {%- for post in post_list limit:3 -%}
+  {%- for post in post_list -%}
     <li>
       <div class="post-list-layout">
         <div class="title">

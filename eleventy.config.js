@@ -10,6 +10,7 @@ const processHtmlForFeed = require("./lib/processHtmlForFeed.js");
 const readableDate = require("./lib/readableDate.js");
 const processCSS = require("./lib/processCSS.js");
 const withfilenameShortcode = require("./lib/withfilenameShortcode.js");
+const limit = require("./lib/limit.js");
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
@@ -28,6 +29,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("htmlDateString", htmlDateString);
   eleventyConfig.addFilter("readableDate", readableDate);
   eleventyConfig.addFilter("processCSS", processCSS);
+  eleventyConfig.addFilter("limit", limit);
   eleventyConfig.addTransform("minify", minify);
   eleventyConfig.setLiquidOptions({ jsTruthy: true });
   eleventyConfig.setLibrary("md", markdownLibrary);
@@ -36,7 +38,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPairedAsyncShortcode("withfilename", withfilenameShortcode);
 
   return {
-    templateFormats: ["html", "md", "liquid"],
+    templateFormats: ["html", "md", "njk"],
     dir: { input: "src" },
   };
 };

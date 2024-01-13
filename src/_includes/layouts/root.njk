@@ -58,15 +58,15 @@
     <link rel="preload" href="/font/brutalist-mono/BrutalistMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/font/brutalist-mono/BrutalistMono-BoldOblique.woff2" as="font" type="font/woff2" crossorigin>
 
-    {% capture css %}
-      {% include 'haskoy.css' %}
-      {% include 'brutalist-mono.css' %}
-      {% include 'a11y-dark.css' %}
-      {% include 'flexoki.css' %}
-      {% include 'main.css' %}
-    {% endcapture %}
+    {% set css %}
+    {% include 'haskoy.css' %}
+    {% include 'brutalist-mono.css' %}
+    {% include 'a11y-dark.css' %}
+    {% include 'flexoki.css' %}
+    {% include 'main.css' %}
+    {% endset %}
     <style>
-      {{css | processCSS}}
+      {{css | processCSS | safe}}
     </style>
   </head>
 
@@ -90,6 +90,9 @@
               <li>
                 <a href="/now" class="_subtle-link">Now</a>
               </li>
+              <li>
+                <a href="/feed.xml" class="_subtle-link">RSS</a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -97,7 +100,7 @@
     </header>
 
     <main id="main">
-      <div class="root-main-layout prose">{{ content }}</div>
+      <div class="root-main-layout prose">{{ content | safe }}</div>
     </main>
 
     <footer class="root-footer">
@@ -112,7 +115,6 @@
         <li>
           <a href="/resume">My résumé</a>
         </li>
-        {% comment %} <li><a href="/contact">Contact me</a></li> {% endcomment %}
         <li>
           <a href="/sitemap.xml">Site map</a>
         </li>

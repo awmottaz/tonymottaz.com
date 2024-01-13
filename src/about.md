@@ -1,5 +1,5 @@
 ---
-layout: layouts/post.liquid
+layout: layouts/post.njk
 title: About this website
 description: About tonymottaz.com
 ---
