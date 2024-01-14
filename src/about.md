@@ -11,7 +11,7 @@ other stuff, too.
 
 ## Colophon
 
-I use [11ty](https://www.11ty.dev/) to write and build this website. It is deployed to [Render](https://render.com). This website has no tracking, analytics, cookies, or page view counting.
+I use [11ty](https://www.11ty.dev/) to develop and build this website. It is deployed with [Netlify](https://www.netlify.com/). I do not have access to or set any tracking, analytics, cookies, or page view counting. I leave [Netlify's site analytics feature](https://docs.netlify.com/monitor-sites/site-analytics/) disabled at all times.
 
 The source code can be found in [this GitHub repository](https://github.com/awmottaz/tonymottaz.com).
 
