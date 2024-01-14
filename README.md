@@ -1,3 +1,1 @@
-This repository is the source code for my website: https://www.tonymottaz.com.
-
-Take a look at the wiki for development information.
+I have migrated this repository to [Codeberg](https://codeberg.org/tonymottaz/tonymottaz.com).

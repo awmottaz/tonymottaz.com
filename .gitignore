@@ -1,8 +1,0 @@
-node_modules/
-_site/
-.DS_Store
-.favicon/
-.vercel
-
-# Local Netlify folder
-.netlify

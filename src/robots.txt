@@ -1,4 +1,0 @@
-User-agent: GPTBot
-Disallow: /
-
-Sitemap: https://www.tonymottaz.com/sitemap.xml
