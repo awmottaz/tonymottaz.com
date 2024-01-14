@@ -8,7 +8,9 @@
     "serve": "npx serve _site",
     "start": "npx @11ty/eleventy --serve --quiet",
     "favicon": "real-favicon generate faviconDescription.json faviconData.json .favicon",
-    "favicon-update": "real-favicon check-for-update --fail-on-update faviconData.json"
+    "favicon-update": "real-favicon check-for-update --fail-on-update faviconData.json",
+    "deploy": "netlify deploy --prod",
+    "deploy:preview": "netlify deploy"
   },
   "author": {
     "name": "Tony Mottaz",
@@ -28,6 +30,7 @@
     "html-minifier-terser": "7.2.0",
     "lightningcss": "1.22.1",
     "luxon": "3.4.4",
+    "netlify-cli": "17.13.2",
     "posthtml": "0.16.6",
     "posthtml-remove-attributes": "1.0.0",
     "posthtml-urls": "1.0.0",

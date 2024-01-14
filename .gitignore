@@ -3,3 +3,6 @@ _site/
 .DS_Store
 .favicon/
 .vercel
+
+# Local Netlify folder
+.netlify
