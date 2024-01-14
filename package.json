@@ -28,6 +28,7 @@
     "cli-real-favicon": "^0.0.8",
     "escape-goat": "4.0.0",
     "html-minifier-terser": "7.2.0",
+    "htmlnano": "2.1.0",
     "lightningcss": "1.22.1",
     "luxon": "3.4.4",
     "netlify-cli": "17.13.2",
